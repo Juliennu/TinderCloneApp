@@ -16,6 +16,8 @@
 		1A3860C727214E3600F1A234 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860C627214E3600F1A234 /* RxSwift */; };
 		1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CA27218EB400F1A234 /* BottomControlView.swift */; };
 		1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */; };
+		1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CF2721C7AE00F1A234 /* BottomButton.swift */; };
+		1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860D12721C7D800F1A234 /* BottomButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1A3860BD27214E2000F1A234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A3860CA27218EB400F1A234 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
+		1A3860CF2721C7AE00F1A234 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
+		1A3860D12721C7D800F1A234 /* BottomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
+				1A3860CF2721C7AE00F1A234 /* BottomButton.swift */,
+				1A3860D12721C7D800F1A234 /* BottomButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +181,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
+				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
