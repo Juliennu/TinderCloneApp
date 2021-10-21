@@ -15,6 +15,7 @@
 		1A3860C527214E3600F1A234 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860C427214E3600F1A234 /* RxCocoa */; };
 		1A3860C727214E3600F1A234 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860C627214E3600F1A234 /* RxSwift */; };
 		1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CA27218EB400F1A234 /* BottomControlView.swift */; };
+		1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1A3860BB27214E2000F1A234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A3860BD27214E2000F1A234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A3860CA27218EB400F1A234 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
+		1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		1A3860AE27214E1D00F1A234 /* TinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A3860CC2721BA8A00F1A234 /* Extensions */,
 				1A3860C927218E9B00F1A234 /* Views */,
 				1A3860C827218E6C00F1A234 /* ViewControllers */,
 				1A3860AF27214E1D00F1A234 /* AppDelegate.swift */,
@@ -85,6 +88,14 @@
 				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1A3860CC2721BA8A00F1A234 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
 				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,
+				1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
