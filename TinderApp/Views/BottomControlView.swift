@@ -9,10 +9,18 @@ import UIKit
 
 class BottomControlView: UIView {
     
+    let view1 = ButtomButtonView(frame: .zero, width: 50, imageName: "reload")
+    
+    let view2 = ButtomButtonView(frame: .zero, width: 60, imageName: "nope")
+    
+    let view3 = ButtomButtonView(frame: .zero, width: 50, imageName: "star")
+    
+    let view4 = ButtomButtonView(frame: .zero, width: 60, imageName: "like")
+    
+    let view5 = ButtomButtonView(frame: .zero, width: 50, imageName: "boost")
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = .purple
         
         setUpViews()
     }
@@ -22,21 +30,6 @@ class BottomControlView: UIView {
     }
     
     func setUpViews() {
-        
-        let view1 = ButtomButtonView(frame: .zero, width: 50, imageName: "reload")
-        view1.backgroundColor = .orange
-        
-        let view2 = ButtomButtonView(frame: .zero, width: 60, imageName: "nope")
-        view2.backgroundColor = .orange
-        
-        let view3 = ButtomButtonView(frame: .zero, width: 50, imageName: "star")
-        view3.backgroundColor = .orange
-        
-        let view4 = ButtomButtonView(frame: .zero, width: 60, imageName: "like")
-        view4.backgroundColor = .orange
-        
-        let view5 = ButtomButtonView(frame: .zero, width: 50, imageName: "boost")
-        view5.backgroundColor = .orange
         
         let baseStackView = UIStackView(arrangedSubviews: [view1, view2, view3, view4, view5])
         
@@ -60,7 +53,7 @@ class BottomControlView: UIView {
 
 class ButtomButtonView: UIView {
     
-    var button: UIButton?
+    var button: BottomButton?
     
     init(frame: CGRect, width: CGFloat, imageName: String) {
         super.init(frame: frame)
@@ -74,8 +67,8 @@ class ButtomButtonView: UIView {
     }
     
     func setUpButton(width: CGFloat, imageName: String) {
-        button = UIButton(type: .custom)//.systemだと色が青くなる
-//        button?.setTitle("tap", for: .normal)
+        button = BottomButton(type: .custom)//.systemだと色が青くなる
+        //        button?.setTitle("tap", for: .normal)
         let image = UIImage(named: imageName)
         let imageSize = width * 0.4
         let resizeImage = image?.resize(size: .init(width: imageSize, height: imageSize))
@@ -97,9 +90,42 @@ class ButtomButtonView: UIView {
             button?.centerXAnchor.constraint(equalTo: centerXAnchor),
             button?.widthAnchor.constraint(equalToConstant: width),
             button?.heightAnchor.constraint(equalToConstant: width)
-
+            
         ]
             .forEach { $0?.isActive = true }
+        
+    }
+}
 
+class BottomButton: UIButton {
+    
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                //ボタン押下時は小さく、ボタンを離したら大きさが元に戻るアニメーション
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
+                    //アニメーション付きで大きさを0.8倍にしてくれる
+                    self.transform = .init(scaleX: 0.8, y: 0.8)
+                    self.layoutIfNeeded()
+                    
+                }
+                
+            } else {
+                //ハイライトが終わった時
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
+                    //元の大きさに戻ってくれる
+                    self.transform = .identity
+                    self.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
