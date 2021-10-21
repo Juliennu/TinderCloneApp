@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860AF27214E1D00F1A234 /* AppDelegate.swift */; };
 		1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860B127214E1D00F1A234 /* SceneDelegate.swift */; };
-		1A3860B427214E1D00F1A234 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860B327214E1D00F1A234 /* ViewController.swift */; };
+		1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860B327214E1D00F1A234 /* HomeViewController.swift */; };
 		1A3860B927214E2000F1A234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A3860B827214E2000F1A234 /* Assets.xcassets */; };
 		1A3860BC27214E2000F1A234 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A3860BA27214E2000F1A234 /* LaunchScreen.storyboard */; };
 		1A3860C527214E3600F1A234 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860C427214E3600F1A234 /* RxCocoa */; };
 		1A3860C727214E3600F1A234 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860C627214E3600F1A234 /* RxSwift */; };
+		1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CA27218EB400F1A234 /* BottomControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A3860AC27214E1D00F1A234 /* TinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3860AF27214E1D00F1A234 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A3860B127214E1D00F1A234 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A3860B327214E1D00F1A234 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1A3860B327214E1D00F1A234 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1A3860B827214E2000F1A234 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A3860BB27214E2000F1A234 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A3860BD27214E2000F1A234 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A3860CA27218EB400F1A234 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +60,31 @@
 		1A3860AE27214E1D00F1A234 /* TinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A3860C927218E9B00F1A234 /* Views */,
+				1A3860C827218E6C00F1A234 /* ViewControllers */,
 				1A3860AF27214E1D00F1A234 /* AppDelegate.swift */,
 				1A3860B127214E1D00F1A234 /* SceneDelegate.swift */,
-				1A3860B327214E1D00F1A234 /* ViewController.swift */,
 				1A3860B827214E2000F1A234 /* Assets.xcassets */,
 				1A3860BA27214E2000F1A234 /* LaunchScreen.storyboard */,
 				1A3860BD27214E2000F1A234 /* Info.plist */,
 			);
 			path = TinderApp;
+			sourceTree = "<group>";
+		};
+		1A3860C827218E6C00F1A234 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A3860B327214E1D00F1A234 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1A3860C927218E9B00F1A234 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,9 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A3860B427214E1D00F1A234 /* ViewController.swift in Sources */,
+				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
+				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
