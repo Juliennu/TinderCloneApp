@@ -9,15 +9,15 @@ import UIKit
 
 class BottomControlView: UIView {
     
-    let view1 = ButtomButtonView(frame: .zero, width: 50, imageName: "reload")
+    let reloadView = ButtomButtonView(frame: .zero, width: 50, imageName: "reload")
     
-    let view2 = ButtomButtonView(frame: .zero, width: 60, imageName: "nope")
+    let nopeView = ButtomButtonView(frame: .zero, width: 60, imageName: "nope")
     
-    let view3 = ButtomButtonView(frame: .zero, width: 50, imageName: "star")
+    let superLikeView = ButtomButtonView(frame: .zero, width: 50, imageName: "star")
     
-    let view4 = ButtomButtonView(frame: .zero, width: 60, imageName: "like")
+    let likeView = ButtomButtonView(frame: .zero, width: 60, imageName: "like")
     
-    let view5 = ButtomButtonView(frame: .zero, width: 50, imageName: "boost")
+    let boostView = ButtomButtonView(frame: .zero, width: 50, imageName: "boost")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,7 +31,7 @@ class BottomControlView: UIView {
     
     func setUpViews() {
         
-        let baseStackView = UIStackView(arrangedSubviews: [view1, view2, view3, view4, view5])
+        let baseStackView = UIStackView(arrangedSubviews: [reloadView, nopeView, superLikeView, likeView, boostView])
         
         baseStackView.axis = .horizontal
         baseStackView.distribution = .fillEqually

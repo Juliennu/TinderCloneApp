@@ -20,15 +20,14 @@ class HomeViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        let view1 = UIView()
-        view1.backgroundColor = .yellow
+        let topControlView = TopControlView()
         
         let view2 = UIView()
         view2.backgroundColor = .blue
         
-        let view3 = BottomControlView()
+        let bottomControlView = BottomControlView()
         
-        let stackView = UIStackView(arrangedSubviews: [view1, view2, view3])
+        let stackView = UIStackView(arrangedSubviews: [topControlView, view2, bottomControlView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         //垂直揃え
         stackView.axis = .vertical
@@ -39,8 +38,8 @@ class HomeViewController: UIViewController {
         
         //StackViewのレイアウト
         [
-            view1.heightAnchor.constraint(equalToConstant: 100),
-            view3.heightAnchor.constraint(equalToConstant: 120),
+            topControlView.heightAnchor.constraint(equalToConstant: 100),
+            bottomControlView.heightAnchor.constraint(equalToConstant: 120),
             
             //safeAreaを除外する
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -50,8 +49,6 @@ class HomeViewController: UIViewController {
         ]
             .forEach { $0.isActive = true }
     }
-
-
 }
 
 

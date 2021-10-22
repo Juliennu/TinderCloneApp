@@ -18,6 +18,7 @@
 		1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */; };
 		1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860CF2721C7AE00F1A234 /* BottomButton.swift */; };
 		1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860D12721C7D800F1A234 /* BottomButtonView.swift */; };
+		1A3860D427224B0400F1A234 /* TopControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860D327224B0400F1A234 /* TopControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		1A3860CF2721C7AE00F1A234 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 		1A3860D12721C7D800F1A234 /* BottomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonView.swift; sourceTree = "<group>"; };
+		1A3860D327224B0400F1A234 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
 				1A3860CF2721C7AE00F1A234 /* BottomButton.swift */,
 				1A3860D12721C7D800F1A234 /* BottomButtonView.swift */,
+				1A3860D327224B0400F1A234 /* TopControlView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
 				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,
+				1A3860D427224B0400F1A234 /* TopControlView.swift in Sources */,
 				1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
