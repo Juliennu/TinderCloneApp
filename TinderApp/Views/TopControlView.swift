@@ -13,16 +13,20 @@ class TopControlView: UIView {
     
     private let disposeBag = DisposeBag()
     
-    let tinderButton = createTopButton(imageName: "fire")
-    let goodButton = createTopButton(imageName: "diamond")
-    let messageButton = createTopButton(imageName: "message")
-    let profileButton = createTopButton(imageName: "profile")
+    let tinderButton = createTopButton(selectedImageName: "fire", unselectedImage: "fireUnselected")
+    let goodButton = createTopButton(selectedImageName: "diamond", unselectedImage: "diamondUnselected")
+    let messageButton = createTopButton(selectedImageName: "message", unselectedImage: "messageUnselected")
+    let profileButton = createTopButton(selectedImageName: "profile", unselectedImage: "profileUnselected")
     
     //override init(frame: CGRect)の範囲外で関数を作るときは`static`をつける必要あり
-    static private func createTopButton(imageName: String) -> UIButton {
+    static private func createTopButton(selectedImageName: String, unselectedImage: String) -> UIButton {
         let button = UIButton(type: .custom)
-        let image = UIImage(named: imageName)
-        button.setImage(image, for: .normal)
+        let selectedImage = UIImage(named: selectedImageName)
+        let unselectedImage = UIImage(named: unselectedImage)
+        //ボタン選択時のイメージ
+        button.setImage(selectedImage, for: .selected)
+        //ボタン未選択時のイメージ
+        button.setImage(unselectedImage, for: .normal)
         //画像の縦横比を維持する
         button.imageView?.contentMode = .scaleAspectFit
         return button
@@ -58,6 +62,9 @@ class TopControlView: UIView {
             baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -space),
         ]
             .forEach { $0.isActive = true }
+        
+        //初期でTinderButtonを選択状態にする
+        tinderButton.isSelected = true
     }
     
     //ボタン選択時に色を変える処理
@@ -65,28 +72,40 @@ class TopControlView: UIView {
         //tap時の処理
         tinderButton.rx.tap
             .subscribe { _ in
-                print(#function)//function名をprintしてくれる
+                //print(#function)//function名をprintしてくれる
+                self.handleSelectedButton(selectedButton: self.tinderButton)
             }
             .disposed(by: disposeBag)
         
         goodButton.rx.tap
             .subscribe { _ in
-                print(#function)//function名をprintしてくれる
+                self.handleSelectedButton(selectedButton: self.goodButton)
             }
             .disposed(by: disposeBag)
         
         messageButton.rx.tap
             .subscribe { _ in
-                print(#function)//function名をprintしてくれる
+                self.handleSelectedButton(selectedButton: self.messageButton)
             }
             .disposed(by: disposeBag)
         
         profileButton.rx.tap
             .subscribe { _ in
-                print(#function)//function名をprintしてくれる
+                self.handleSelectedButton(selectedButton: self.profileButton)
             }
             .disposed(by: disposeBag)
-
+    
+    }
+    
+    private func handleSelectedButton(selectedButton: UIButton) {
+        let buttons = [tinderButton, goodButton, messageButton, profileButton]
+        buttons.forEach { button in
+            if button == selectedButton {
+                button.isSelected = true
+            } else {
+                button.isSelected = false
+            }
+        }
     }
 }
 
