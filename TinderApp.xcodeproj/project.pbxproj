@@ -20,6 +20,7 @@
 		1A3860D72722639600F1A234 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860D62722639600F1A234 /* RxCocoa */; };
 		1A3860D92722639600F1A234 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860D82722639600F1A234 /* RxRelay */; };
 		1A3860DB2722639600F1A234 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860DA2722639600F1A234 /* RxSwift */; };
+		1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860DC2722896C00F1A234 /* UIView-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		1A3860CF2721C7AE00F1A234 /* BottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButton.swift; sourceTree = "<group>"; };
 		1A3860D12721C7D800F1A234 /* BottomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonView.swift; sourceTree = "<group>"; };
 		1A3860D327224B0400F1A234 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
+		1A3860DC2722896C00F1A234 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */,
+				1A3860DC2722896C00F1A234 /* UIView-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
 				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
+				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
 				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,

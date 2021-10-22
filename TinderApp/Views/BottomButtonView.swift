@@ -22,7 +22,7 @@ class ButtomButtonView: UIView {
     }
     
     private func setUpButton(width: CGFloat, imageName: String) {
-        button = BottomButton(type: .custom)//.systemだと色が青くなる
+        button = BottomButton(type: .custom)//.systemだとボタン色が青くなる
         let image = UIImage(named: imageName)
         let imageSize = width * 0.4
         let resizeImage = image?.resize(size: .init(width: imageSize, height: imageSize))
@@ -39,13 +39,7 @@ class ButtomButtonView: UIView {
         
         addSubview(button!)
         
-        [
-            button?.centerYAnchor.constraint(equalTo: centerYAnchor),
-            button?.centerXAnchor.constraint(equalTo: centerXAnchor),
-            button?.widthAnchor.constraint(equalToConstant: width),
-            button?.heightAnchor.constraint(equalToConstant: width)
-        ]
-            .forEach { $0?.isActive = true }
+        button?.anchor(centerY: centerYAnchor, centerX: centerXAnchor, width: width, height: width)
     }
 }
 
