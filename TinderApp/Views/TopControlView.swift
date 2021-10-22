@@ -71,30 +71,39 @@ class TopControlView: UIView {
     private func setUpBindings() {
         //tap時の処理
         tinderButton.rx.tap
-            .subscribe { _ in
-                //print(#function)//function名をprintしてくれる
+            //ドライバー：①mainスレッドで実行される②エラーを流さない
+            .asDriver()
+            .drive(onNext: { [weak self] _ in//循環参照防止のためweak selfにする
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.tinderButton)
-            }
+            })
+            //stream(キャッシュ？)を貯めておき、Viewが破棄される時に一緒に捨てるゴミだめのようなもの
+            //これを書かないとずっと処理が続いてしまいメモリーリークになる
             .disposed(by: disposeBag)
         
         goodButton.rx.tap
-            .subscribe { _ in
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.goodButton)
-            }
+            })
             .disposed(by: disposeBag)
         
         messageButton.rx.tap
-            .subscribe { _ in
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.messageButton)
-            }
+            })
             .disposed(by: disposeBag)
         
         profileButton.rx.tap
-            .subscribe { _ in
+            .asDriver()
+            .drive(onNext: { [weak self] _ in
+                guard let self = self else { return }
                 self.handleSelectedButton(selectedButton: self.profileButton)
-            }
+            })
             .disposed(by: disposeBag)
-    
     }
     
     private func handleSelectedButton(selectedButton: UIButton) {
