@@ -19,20 +19,14 @@ class HomeViewController: UIViewController {
     func setUpViews() {
         
         view.backgroundColor = .white
-        
         let topControlView = TopControlView()
-        
-        let view2 = UIView()
-        view2.backgroundColor = .blue
-        
+        let cardView = CardView()
         let bottomControlView = BottomControlView()
         
-        let stackView = UIStackView(arrangedSubviews: [topControlView, view2, bottomControlView])
+        let stackView = UIStackView(arrangedSubviews: [topControlView, cardView, bottomControlView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         //垂直揃え
         stackView.axis = .vertical
-        //均等に配置
-//        stackView.distribution = .fillEqually
         
         self.view.addSubview(stackView)
         
