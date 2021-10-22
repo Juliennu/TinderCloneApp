@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxCocoa//UIの変化を受け取れる？
 
 class TopControlView: UIView {
     
@@ -28,6 +29,7 @@ class TopControlView: UIView {
         super.init(frame: frame)
 
         setUpStackView()
+        setUpBindings()
     }
     
     required init?(coder: NSCoder) {
@@ -37,7 +39,7 @@ class TopControlView: UIView {
     private func setUpStackView() {
         
         let baseStackView = UIStackView(arrangedSubviews: [tinderButton,goodButton, messageButton, profileButton])
-        let space: CGFloat = 40
+        let space: CGFloat = 43
         
         baseStackView.axis = .horizontal
         baseStackView.distribution = .fillEqually
@@ -53,6 +55,12 @@ class TopControlView: UIView {
             baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -space),
         ]
             .forEach { $0.isActive = true }
+    }
+    
+    //ボタン選択時に色を変える処理
+    private func setUpBindings() {
+        
+        
     }
 }
 

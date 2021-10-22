@@ -32,10 +32,10 @@ class BottomControlView: UIView {
     private func setUpStackView() {
         
         let baseStackView = UIStackView(arrangedSubviews: [reloadView, nopeView, superLikeView, likeView, boostView])
-        
+        let space: CGFloat = 10
         baseStackView.axis = .horizontal
         baseStackView.distribution = .fillEqually
-        baseStackView.spacing = 10
+        baseStackView.spacing = space
         baseStackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(baseStackView)
@@ -43,8 +43,8 @@ class BottomControlView: UIView {
         [
             baseStackView.topAnchor.constraint(equalTo: topAnchor),
             baseStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
-            baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
+            baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: space),
+            baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -space),
         ]
             .forEach { $0.isActive = true }
     }
