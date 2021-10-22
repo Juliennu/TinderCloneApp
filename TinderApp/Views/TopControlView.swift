@@ -7,8 +7,11 @@
 
 import UIKit
 import RxCocoa//UIの変化を受け取れる？
+import RxSwift
 
 class TopControlView: UIView {
+    
+    private let disposeBag = DisposeBag()
     
     let tinderButton = createTopButton(imageName: "fire")
     let goodButton = createTopButton(imageName: "diamond")
@@ -59,8 +62,31 @@ class TopControlView: UIView {
     
     //ボタン選択時に色を変える処理
     private func setUpBindings() {
+        //tap時の処理
+        tinderButton.rx.tap
+            .subscribe { _ in
+                print(#function)//function名をprintしてくれる
+            }
+            .disposed(by: disposeBag)
         
+        goodButton.rx.tap
+            .subscribe { _ in
+                print(#function)//function名をprintしてくれる
+            }
+            .disposed(by: disposeBag)
         
+        messageButton.rx.tap
+            .subscribe { _ in
+                print(#function)//function名をprintしてくれる
+            }
+            .disposed(by: disposeBag)
+        
+        profileButton.rx.tap
+            .subscribe { _ in
+                print(#function)//function名をprintしてくれる
+            }
+            .disposed(by: disposeBag)
+
     }
 }
 
