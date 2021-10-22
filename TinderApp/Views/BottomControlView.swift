@@ -22,14 +22,14 @@ class BottomControlView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setUpViews()
+        setUpStackView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpViews() {
+    private func setUpStackView() {
         
         let baseStackView = UIStackView(arrangedSubviews: [reloadView, nopeView, superLikeView, likeView, boostView])
         

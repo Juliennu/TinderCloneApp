@@ -21,7 +21,7 @@ class ButtomButtonView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setUpButton(width: CGFloat, imageName: String) {
+    private func setUpButton(width: CGFloat, imageName: String) {
         button = BottomButton(type: .custom)//.systemだと色が青くなる
         let image = UIImage(named: imageName)
         let imageSize = width * 0.4
