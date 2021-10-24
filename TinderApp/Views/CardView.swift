@@ -76,6 +76,18 @@ class CardView: UIView {
         return label
     }()
     
+    let nopeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 45)
+        label.text = "NOPE"
+        label.textColor = Colors.redColor
+        label.layer.cornerRadius = 10
+        label.layer.borderWidth = 3
+        label.layer.borderColor = Colors.redColor.cgColor
+        label.textAlignment = .center
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -132,8 +144,9 @@ class CardView: UIView {
         
         addSubview(cardImageView)
         addSubview(nameLabel)
-        addSubview(goodLabel)
         addSubview(baseStackView)
+        addSubview(goodLabel)
+        addSubview(nopeLabel)
 
         
         cardImageView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 10, rightPadding: 10)
@@ -145,6 +158,8 @@ class CardView: UIView {
         nameLabel.anchor(bottom: baseStackView.topAnchor, left: cardImageView.leftAnchor, bottomPadding: 10, leftPadding: 20)
         
         goodLabel.anchor(top: cardImageView.topAnchor, left: cardImageView.leftAnchor, width: 140, height: 55, topPadding: 25, leftPadding: 25)
+        
+        nopeLabel.anchor(top: cardImageView.topAnchor, right: cardImageView.rightAnchor, width: 140, height: 55, topPadding: 25, rightPadding: 25)
 
     }
     
