@@ -9,15 +9,7 @@ import UIKit
 
 class CardView: UIView {
     
-    let cardImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.layer.cornerRadius = 10
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "dogAndBards")
-        //イメージが境界に合わせて切り取られる
-        imageView.clipsToBounds = true
-        return imageView
-    }()
+    private let cardImageView = CardImageView()
     
     private let infoButton = UIButton(type: .system).createCardInfoButton()
     

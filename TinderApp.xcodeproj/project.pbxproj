@@ -26,6 +26,7 @@
 		1A3860E32725BDA400F1A234 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E22725BDA400F1A234 /* Colors.swift */; };
 		1A3860E62725C97C00F1A234 /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */; };
 		1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E72725D28200F1A234 /* UIButton-Extension.swift */; };
+		1A3860EA2725D45100F1A234 /* CardImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E92725D45100F1A234 /* CardImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		1A3860E22725BDA400F1A234 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
 		1A3860E72725D28200F1A234 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
+		1A3860E92725D45100F1A234 /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				1A3860D327224B0400F1A234 /* TopControlView.swift */,
 				1A3860DE2722958900F1A234 /* CardView.swift */,
 				1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */,
+				1A3860E92725D45100F1A234 /* CardImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
 				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,
+				1A3860EA2725D45100F1A234 /* CardImageView.swift in Sources */,
 				1A3860D427224B0400F1A234 /* TopControlView.swift in Sources */,
 				1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */,
 				1A3860E12725BC5200F1A234 /* UIColor-Extension.swift in Sources */,
