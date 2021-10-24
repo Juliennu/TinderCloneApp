@@ -8,7 +8,10 @@
 import UIKit
 
 class CardView: UIView {
+    //グラデーションをつける
+    private let gradientLayer = CAGradientLayer()
     
+    //MARK: UIViews
     private let cardImageView = CardImageView()
     
     private let infoButton = UIButton(type: .system).createCardInfoButton()
@@ -29,11 +32,26 @@ class CardView: UIView {
         super.init(frame: frame)
         
         setUpLayout()
+        setUpGradientLayer()
         
         //左右への動きを認識するジェスチャーを設定
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panCardView))
         self.addGestureRecognizer(panGesture)
 
+    }
+    
+    override func layoutSubviews() {
+        //Viewが作成されたタイミングで大きさを指定する
+        gradientLayer.frame = self.bounds
+    }
+    
+    private func setUpGradientLayer() {
+        //指定した色を混ぜる
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        //位置の調整
+        gradientLayer.locations = [0.3, 1.1]
+        cardImageView.layer.addSublayer(gradientLayer)
+        
     }
     
     @objc private func panCardView(gesture: UIPanGestureRecognizer) {

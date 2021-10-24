@@ -90,7 +90,6 @@
 				1A3860C827218E6C00F1A234 /* ViewControllers */,
 				1A3860AF27214E1D00F1A234 /* AppDelegate.swift */,
 				1A3860B127214E1D00F1A234 /* SceneDelegate.swift */,
-				1A3860B827214E2000F1A234 /* Assets.xcassets */,
 				1A3860BA27214E2000F1A234 /* LaunchScreen.storyboard */,
 				1A3860BD27214E2000F1A234 /* Info.plist */,
 			);
@@ -134,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				1A3860E22725BDA400F1A234 /* Colors.swift */,
+				1A3860B827214E2000F1A234 /* Assets.xcassets */,
 			);
 			path = Design;
 			sourceTree = "<group>";
