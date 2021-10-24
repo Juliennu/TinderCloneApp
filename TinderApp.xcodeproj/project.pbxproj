@@ -25,6 +25,7 @@
 		1A3860E12725BC5200F1A234 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E02725BC5200F1A234 /* UIColor-Extension.swift */; };
 		1A3860E32725BDA400F1A234 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E22725BDA400F1A234 /* Colors.swift */; };
 		1A3860E62725C97C00F1A234 /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */; };
+		1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E72725D28200F1A234 /* UIButton-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		1A3860E02725BC5200F1A234 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		1A3860E22725BDA400F1A234 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
+		1A3860E72725D28200F1A234 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */,
 				1A3860DC2722896C00F1A234 /* UIView-Extension.swift */,
 				1A3860E02725BC5200F1A234 /* UIColor-Extension.swift */,
+				1A3860E72725D28200F1A234 /* UIButton-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
+				1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */,
 				1A3860E32725BDA400F1A234 /* Colors.swift in Sources */,
 				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,

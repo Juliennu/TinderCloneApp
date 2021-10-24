@@ -19,16 +19,7 @@ class CardView: UIView {
         return imageView
     }()
     
-    let infoButton: UIButton = {
-        let button = UIButton(type: .system)
-        let buttonImage = UIImage(systemName: "info.circle.fill")?
-            //サイズ調整
-            .resize(size: .init(width: 40, height: 40))
-        button.setImage(buttonImage, for: .normal)
-        button.tintColor = .white
-        button.imageView?.contentMode = .scaleAspectFit
-        return button
-    }()
+    private let infoButton = UIButton(type: .system).createCardInfoButton()
     
     private let nameLabel = CardInfoLabel(labelText: "Juri, 26", labelFont: .systemFont(ofSize: 40, weight: .heavy))
     

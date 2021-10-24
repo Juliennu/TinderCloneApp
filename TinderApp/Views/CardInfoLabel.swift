@@ -37,8 +37,7 @@ class CardInfoLabel: UILabel {
         lineBreakMode = .byWordWrapping
 
     }
-    
-        
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
