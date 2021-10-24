@@ -19,14 +19,6 @@ class CardView: UIView {
         return imageView
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 40, weight: .heavy)//boldよりも濃い
-        label.textColor = .white
-        label.text = "Juri, 26"
-        return label
-    }()
-    
     let infoButton: UIButton = {
         let button = UIButton(type: .system)
         let buttonImage = UIImage(systemName: "info.circle.fill")?
@@ -38,61 +30,18 @@ class CardView: UIView {
         return button
     }()
     
-    let residenceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = .white
-        label.text = "日本、栃木"
-        return label
-    }()
+    private let nameLabel = CardInfoLabel(labelText: "Juri, 26", labelFont: .systemFont(ofSize: 40, weight: .heavy))
     
-    let hobbyLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .regular)
-        label.textColor = .white
-        label.text = "ボードゲーム"
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        return label
-    }()
+    private let residenceLabel = CardInfoLabel(labelText: "日本、栃木", labelFont: .systemFont(ofSize: 18, weight: .regular))
     
-    let introductionLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 18, weight: .regular)
-        label.textColor = .white
-        label.text = "土日に一緒に遊べる友達を探しています"
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        return label
-    }()
+    private let hobbyLabel = CardInfoLabel(labelText: "ボードゲーム", labelFont: .systemFont(ofSize: 20, weight: .regular))
     
-    let goodLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 45)
-        label.text = "GOOD"
-        label.textColor = Colors.greenColor
-        label.layer.cornerRadius = 10
-        label.layer.borderWidth = 3
-        label.layer.borderColor = Colors.greenColor.cgColor
-        label.textAlignment = .center
-        //最初は見えなくする
-        label.alpha = 0
-        return label
-    }()
+    private let introductionLabel = CardInfoLabel(labelText: "土日に一緒に遊べる友達を探しています", labelFont: .systemFont(ofSize: 18, weight: .regular))
     
-    let nopeLabel: UILabel = {
-        let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 45)
-        label.text = "NOPE"
-        label.textColor = Colors.redColor
-        label.layer.cornerRadius = 10
-        label.layer.borderWidth = 3
-        label.layer.borderColor = Colors.redColor.cgColor
-        label.textAlignment = .center
-        label.alpha = 0
-        return label
-    }()
+    private let goodLabel = CardInfoLabel(labelText: "GOOD", color: Colors.greenColor)
     
+    private let nopeLabel = CardInfoLabel(labelText: "NOPE", color: Colors.redColor)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
