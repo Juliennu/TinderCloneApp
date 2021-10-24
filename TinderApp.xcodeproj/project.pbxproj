@@ -32,6 +32,8 @@
 		1A3860F12725FAC300F1A234 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860F02725FAC300F1A234 /* FirebaseAuth */; };
 		1A3860F32725FAC300F1A234 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860F22725FAC300F1A234 /* FirebaseCrashlytics */; };
 		1A3860F52725FAC300F1A234 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860F42725FAC300F1A234 /* FirebaseFirestore */; };
+		1A3860F72725FBFA00F1A234 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */; };
+		1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FA272604AD00F1A234 /* RegisterTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		1A3860E72725D28200F1A234 /* UIButton-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		1A3860E92725D45100F1A234 /* CardImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageView.swift; sourceTree = "<group>"; };
 		1A3860EB2725F99400F1A234 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1A3860FA272604AD00F1A234 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				1A3860B327214E1D00F1A234 /* HomeViewController.swift */,
+				1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -118,13 +123,8 @@
 		1A3860C927218E9B00F1A234 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
-				1A3860CF2721C7AE00F1A234 /* BottomButton.swift */,
-				1A3860D12721C7D800F1A234 /* BottomButtonView.swift */,
-				1A3860D327224B0400F1A234 /* TopControlView.swift */,
-				1A3860DE2722958900F1A234 /* CardView.swift */,
-				1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */,
-				1A3860E92725D45100F1A234 /* CardImageView.swift */,
+				1A3860F82726043500F1A234 /* Home */,
+				1A3860F92726044F00F1A234 /* Register */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +147,28 @@
 				1A3860B827214E2000F1A234 /* Assets.xcassets */,
 			);
 			path = Design;
+			sourceTree = "<group>";
+		};
+		1A3860F82726043500F1A234 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
+				1A3860CF2721C7AE00F1A234 /* BottomButton.swift */,
+				1A3860D12721C7D800F1A234 /* BottomButtonView.swift */,
+				1A3860D327224B0400F1A234 /* TopControlView.swift */,
+				1A3860DE2722958900F1A234 /* CardView.swift */,
+				1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */,
+				1A3860E92725D45100F1A234 /* CardImageView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1A3860F92726044F00F1A234 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				1A3860FA272604AD00F1A234 /* RegisterTextField.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,12 +256,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
+				1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */,
 				1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */,
 				1A3860E32725BDA400F1A234 /* Colors.swift in Sources */,
 				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
 				1A3860DF2722958900F1A234 /* CardView.swift in Sources */,
+				1A3860F72725FBFA00F1A234 /* RegisterViewController.swift in Sources */,
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
 				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,
