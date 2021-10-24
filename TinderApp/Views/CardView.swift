@@ -81,17 +81,29 @@ class CardView: UIView {
         
         //動かしている時の動き
         if gesture.state == .changed {
-            //自分自身を動かす
-            self.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
+            handlePanChenge(translation: translation)
+
         //手を離した時の動き
         } else if gesture.state == .ended {
-            //アニメーションをつける
-            UIView.animate(withDuration: 0.3) {
-                //transformを元に戻す
-                self.transform = .identity
-                //アニメーションを認識させる
-                self.layoutIfNeeded()
-            }
+            handlePanEnded()
+        }
+    }
+    
+    private func handlePanChenge(translation: CGPoint) {
+        let degree: CGFloat = translation.x / 20
+        //回転する動きをつける
+        let angle = degree * .pi / 100//pi = 3.14...の円周率
+        let rotateTranslation = CGAffineTransform(rotationAngle: angle)
+        self.transform = rotateTranslation.translatedBy(x: translation.x, y: translation.y)
+    }
+    
+    private func handlePanEnded() {
+        //いろんな動き(バウンドなど)をつけられる
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+            //transformを元に戻す
+            self.transform = .identity
+            //アニメーションを認識させる
+            self.layoutIfNeeded()
         }
     }
                                                 
