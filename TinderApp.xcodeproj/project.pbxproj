@@ -34,6 +34,7 @@
 		1A3860F52725FAC300F1A234 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860F42725FAC300F1A234 /* FirebaseFirestore */; };
 		1A3860F72725FBFA00F1A234 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */; };
 		1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FA272604AD00F1A234 /* RegisterTextField.swift */; };
+		1A3860FD2726091900F1A234 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		1A3860EB2725F99400F1A234 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1A3860FA272604AD00F1A234 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
+		1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				1A3860FA272604AD00F1A234 /* RegisterTextField.swift */,
+				1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			files = (
 				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
 				1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */,
+				1A3860FD2726091900F1A234 /* RegisterTitleLabel.swift in Sources */,
 				1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */,
 				1A3860E32725BDA400F1A234 /* Colors.swift in Sources */,
 				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,

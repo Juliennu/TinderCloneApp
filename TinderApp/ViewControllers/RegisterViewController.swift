@@ -8,6 +8,8 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    
+    private let titleLabel = RegisterTitleLabel()
 
     private let nameTextField = RegisterTextField(placeholderText: "Name")
     
@@ -37,10 +39,14 @@ class RegisterViewController: UIViewController {
         baseStackView.distribution = .fillEqually
         baseStackView.spacing = 20
         
+        view.addSubview(titleLabel)
         view.addSubview(baseStackView)
         
+        
+        titleLabel.anchor(bottom: baseStackView.topAnchor, centerX: view.centerXAnchor, height: 80, bottomPadding: 20)
         baseStackView.anchor(left: view.leftAnchor, right: view.rightAnchor, centerY: view.centerYAnchor, leftPadding: 40, rightPadding: 40)
         nameTextField.anchor(height: 45)
+        
     }
     
 }
