@@ -22,6 +22,8 @@
 		1A3860DB2722639600F1A234 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3860DA2722639600F1A234 /* RxSwift */; };
 		1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860DC2722896C00F1A234 /* UIView-Extension.swift */; };
 		1A3860DF2722958900F1A234 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860DE2722958900F1A234 /* CardView.swift */; };
+		1A3860E12725BC5200F1A234 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E02725BC5200F1A234 /* UIColor-Extension.swift */; };
+		1A3860E32725BDA400F1A234 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860E22725BDA400F1A234 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		1A3860D327224B0400F1A234 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
 		1A3860DC2722896C00F1A234 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		1A3860DE2722958900F1A234 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1A3860E02725BC5200F1A234 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		1A3860E22725BDA400F1A234 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		1A3860AE27214E1D00F1A234 /* TinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				1A3860E42725BDBD00F1A234 /* Design */,
 				1A3860CC2721BA8A00F1A234 /* Extensions */,
 				1A3860C927218E9B00F1A234 /* Views */,
 				1A3860C827218E6C00F1A234 /* ViewControllers */,
@@ -111,8 +116,17 @@
 			children = (
 				1A3860CD2721BAA900F1A234 /* UIImage-Extension.swift */,
 				1A3860DC2722896C00F1A234 /* UIView-Extension.swift */,
+				1A3860E02725BC5200F1A234 /* UIColor-Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A3860E42725BDBD00F1A234 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				1A3860E22725BDA400F1A234 /* Colors.swift */,
+			);
+			path = Design;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
+				1A3860E32725BDA400F1A234 /* Colors.swift in Sources */,
 				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
@@ -203,6 +218,7 @@
 				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,
 				1A3860D427224B0400F1A234 /* TopControlView.swift in Sources */,
 				1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */,
+				1A3860E12725BC5200F1A234 /* UIColor-Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
