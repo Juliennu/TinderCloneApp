@@ -9,15 +9,15 @@ import UIKit
 
 class BottomControlView: UIView {
     
-    let reloadView = ButtomButtonView(frame: .zero, width: 50, imageName: "reload")
+    let reloadView = ButtomButtonView(width: 50, imageName: "reload")
     
-    let nopeView = ButtomButtonView(frame: .zero, width: 60, imageName: "nope")
+    let nopeView = ButtomButtonView(width: 60, imageName: "nope")
     
-    let superLikeView = ButtomButtonView(frame: .zero, width: 50, imageName: "star")
+    let superLikeView = ButtomButtonView(width: 50, imageName: "star")
     
-    let likeView = ButtomButtonView(frame: .zero, width: 60, imageName: "like")
+    let likeView = ButtomButtonView(width: 60, imageName: "like")
     
-    let boostView = ButtomButtonView(frame: .zero, width: 50, imageName: "boost")
+    let boostView = ButtomButtonView(width: 50, imageName: "boost")
     
     override init(frame: CGRect) {
         super.init(frame: frame)

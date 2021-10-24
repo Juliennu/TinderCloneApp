@@ -11,17 +11,9 @@ class ButtomButtonView: UIView {
     
     var button: BottomButton?
     
-    init(frame: CGRect, width: CGFloat, imageName: String) {
+    init(frame: CGRect = .zero, width: CGFloat, imageName: String) {
         super.init(frame: frame)
         
-        setUpButton(width: width, imageName: imageName)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setUpButton(width: CGFloat, imageName: String) {
         button = BottomButton(type: .custom)//.systemだとボタン色が青くなる
         let image = UIImage(named: imageName)
         let imageSize = width * 0.4
@@ -40,6 +32,11 @@ class ButtomButtonView: UIView {
         addSubview(button!)
         
         button?.anchor(centerY: centerYAnchor, centerX: centerXAnchor, width: width, height: width)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
