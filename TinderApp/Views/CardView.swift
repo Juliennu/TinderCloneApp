@@ -11,9 +11,12 @@ class CardView: UIView {
     
     let cardImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .gray//.blue
+//        imageView.backgroundColor = .gray//.blue
         imageView.layer.cornerRadius = 10
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "dogAndBards")
+        //イメージが境界に合わせて切り取られる
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -73,6 +76,8 @@ class CardView: UIView {
         label.layer.borderWidth = 3
         label.layer.borderColor = Colors.greenColor.cgColor
         label.textAlignment = .center
+        //最初は見えなくする
+        label.alpha = 0
         return label
     }()
     
@@ -85,6 +90,7 @@ class CardView: UIView {
         label.layer.borderWidth = 3
         label.layer.borderColor = Colors.redColor.cgColor
         label.textAlignment = .center
+        label.alpha = 0
         return label
     }()
     
