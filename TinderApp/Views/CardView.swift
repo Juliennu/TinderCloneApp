@@ -11,7 +11,6 @@ class CardView: UIView {
     
     let cardImageView: UIImageView = {
         let imageView = UIImageView()
-//        imageView.backgroundColor = .gray//.blue
         imageView.layer.cornerRadius = 10
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "dogAndBards")
@@ -125,6 +124,18 @@ class CardView: UIView {
         let angle = degree * .pi / 100//pi = 3.14...の円周率
         let rotateTranslation = CGAffineTransform(rotationAngle: angle)
         self.transform = rotateTranslation.translatedBy(x: translation.x, y: translation.y)
+        
+        //動きに合わせてLabelのalphaを変更する
+        //alpha値の最大値1を100分割して細かい設定をする
+        let ratio: CGFloat = 1 / 100//Max値を100にする
+        let ratioValue = ratio * translation.x
+        
+        if translation.x > 0 {
+            self.goodLabel.alpha = ratioValue
+        } else if translation.x < 0 {
+            self.nopeLabel.alpha = -ratioValue
+        }
+//        print("translation.x: ", translation.x)
     }
     
     private func handlePanEnded() {
@@ -134,6 +145,9 @@ class CardView: UIView {
             self.transform = .identity
             //アニメーションを認識させる
             self.layoutIfNeeded()
+            
+            self.goodLabel.alpha = 0
+            self.nopeLabel.alpha = 0
         }
     }
                                                 
