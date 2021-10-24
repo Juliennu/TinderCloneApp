@@ -35,6 +35,7 @@
 		1A3860F72725FBFA00F1A234 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */; };
 		1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FA272604AD00F1A234 /* RegisterTextField.swift */; };
 		1A3860FD2726091900F1A234 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */; };
+		1A3860FF27260DE800F1A234 /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FE27260DE800F1A234 /* RegisterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1A3860FA272604AD00F1A234 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
+		1A3860FE27260DE800F1A234 /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				1A3860FA272604AD00F1A234 /* RegisterTextField.swift */,
 				1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */,
+				1A3860FE27260DE800F1A234 /* RegisterButton.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */,
 				1A3860E32725BDA400F1A234 /* Colors.swift in Sources */,
 				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,
+				1A3860FF27260DE800F1A234 /* RegisterButton.swift in Sources */,
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
 				1A3860DF2722958900F1A234 /* CardView.swift in Sources */,

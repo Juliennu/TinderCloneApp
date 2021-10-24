@@ -17,23 +17,24 @@ class RegisterViewController: UIViewController {
     
     private let passwordTextField = RegisterTextField(placeholderText: "password")
     
-    let registerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Register", for: .normal)
-        button.backgroundColor = .blue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 10
-        return button
-    }()
-    
+    private let registerButton = RegisterButton()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .brown
-        setUpStackView()
+        setUpGradientLayer()
+        setUpLayout()
     }
     
-    private func setUpStackView() {
+    private func setUpGradientLayer() {
+        let layer = CAGradientLayer()
+        layer.colors = [Colors.pinkColor.cgColor, Colors.orangeColor.cgColor]
+        layer.locations = [0.0, 1.3]
+        layer.frame = view.bounds
+        view.layer.addSublayer(layer)
+    }
+    
+    private func setUpLayout() {
         let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton])
         baseStackView.axis = .vertical
         baseStackView.distribution = .fillEqually
