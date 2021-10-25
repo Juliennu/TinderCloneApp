@@ -37,6 +37,7 @@
 		1A3861072726848800F1A234 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3861062726848800F1A234 /* FirebaseCrashlytics */; };
 		1A3861092726848800F1A234 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3861082726848800F1A234 /* FirebaseFirestore */; };
 		1A38610B2726848800F1A234 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A38610A2726848800F1A234 /* FirebaseStorage */; };
+		1A38610E272697DF00F1A234 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610D272697DF00F1A234 /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		1A3860FA272604AD00F1A234 /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
 		1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
 		1A3860FE27260DE800F1A234 /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
+		1A38610D272697DF00F1A234 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				1A3860E42725BDBD00F1A234 /* Design */,
 				1A3860CC2721BA8A00F1A234 /* Extensions */,
 				1A3860C927218E9B00F1A234 /* Views */,
+				1A38610C2726977A00F1A234 /* ViewModel */,
 				1A3860C827218E6C00F1A234 /* ViewControllers */,
 				1A3860AF27214E1D00F1A234 /* AppDelegate.swift */,
 				1A3860B127214E1D00F1A234 /* SceneDelegate.swift */,
@@ -177,6 +180,14 @@
 				1A3860FE27260DE800F1A234 /* RegisterButton.swift */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		1A38610C2726977A00F1A234 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1A38610D272697DF00F1A234 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +286,7 @@
 				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
 				1A3860DF2722958900F1A234 /* CardView.swift in Sources */,
 				1A3860F72725FBFA00F1A234 /* RegisterViewController.swift in Sources */,
+				1A38610E272697DF00F1A234 /* RegisterViewModel.swift in Sources */,
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
 				1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */,
 				1A3860CB27218EB400F1A234 /* BottomControlView.swift in Sources */,
