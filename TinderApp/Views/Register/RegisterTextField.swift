@@ -18,6 +18,7 @@ class RegisterTextField: UITextField {
         font = .systemFont(ofSize: 14)
         self.keyboardType = keyboardType
         autocapitalizationType = .none
+        autocorrectionType = .no
         
     }
     
