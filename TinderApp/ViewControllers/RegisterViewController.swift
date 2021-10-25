@@ -18,14 +18,16 @@ class RegisterViewController: UIViewController {
 
     private let nameTextField = RegisterTextField(placeholderText: "Name")
     
-    private let emailTextField = RegisterTextField(placeholderText: "email")
+    private let emailTextField = RegisterTextField(placeholderText: "email", keyboardType: .emailAddress)
     
-    private let passwordTextField = RegisterTextField(placeholderText: "password")
+    private let passwordTextField = RegisterTextField(placeholderText: "password", keyboardType: .emailAddress)
     
     private let registerButton = RegisterButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passwordTextField.isSecureTextEntry = true
         
         setUpGradientLayer()
         setUpLayout()
@@ -94,7 +96,6 @@ class RegisterViewController: UIViewController {
     
     private func setUpLayout() {
         
-        passwordTextField.isSecureTextEntry = true
         
         let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton])
         baseStackView.axis = .vertical
