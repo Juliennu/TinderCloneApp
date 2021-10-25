@@ -16,17 +16,17 @@ class CardView: UIView {
     
     private let infoButton = UIButton(type: .system).createCardInfoButton()
     
-    private let nameLabel = CardInfoLabel(labelText: "Juri, 26", labelFont: .systemFont(ofSize: 40, weight: .heavy))
+    private let nameLabel = CardInfoLabel(text: "Juri, 26", font: .systemFont(ofSize: 40, weight: .heavy))
     
-    private let residenceLabel = CardInfoLabel(labelText: "日本、栃木", labelFont: .systemFont(ofSize: 18, weight: .regular))
+    private let residenceLabel = CardInfoLabel(text: "日本、栃木", font: .systemFont(ofSize: 18, weight: .regular))
     
-    private let hobbyLabel = CardInfoLabel(labelText: "ボードゲーム", labelFont: .systemFont(ofSize: 20, weight: .regular))
+    private let hobbyLabel = CardInfoLabel(text: "ボードゲーム", font: .systemFont(ofSize: 20, weight: .regular))
     
-    private let introductionLabel = CardInfoLabel(labelText: "土日に一緒に遊べる友達を探しています", labelFont: .systemFont(ofSize: 18, weight: .regular))
+    private let introductionLabel = CardInfoLabel(text: "土日に一緒に遊べる友達を探しています", font: .systemFont(ofSize: 18, weight: .regular))
     
-    private let goodLabel = CardInfoLabel(labelText: "GOOD", color: Colors.greenColor)
+    private let goodLabel = CardInfoLabel(text: "GOOD", color: Colors.greenColor)
     
-    private let nopeLabel = CardInfoLabel(labelText: "NOPE", color: Colors.redColor)
+    private let nopeLabel = CardInfoLabel(text: "NOPE", color: Colors.redColor)
 
     override init(frame: CGRect) {
         super.init(frame: frame)

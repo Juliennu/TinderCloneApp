@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import RxSwift
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
+    private let disposeBag = DisposeBag()
+    
+    //MARK: UIViews
     private let titleLabel = RegisterTitleLabel()
 
     private let nameTextField = RegisterTextField(placeholderText: "Name")
@@ -24,6 +29,59 @@ class RegisterViewController: UIViewController {
         
         setUpGradientLayer()
         setUpLayout()
+        setUpBindings()
+    }
+    
+    //MARK: Methods
+    private func setUpBindings() {
+        
+        nameTextField.rx.text
+            .asDriver()
+            .drive() { [weak self] text in
+                //textの情報ハンドル
+            
+        }
+        .disposed(by: disposeBag)
+        
+        emailTextField.rx.text
+            .asDriver()
+            .drive() { [weak self] text in
+                //textの情報ハンドル
+            
+        }
+        .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text
+            .asDriver()
+            .drive() { [weak self] text in
+                //textの情報ハンドル
+            
+        }
+        .disposed(by: disposeBag)
+        
+        registerButton.rx.tap
+            .asDriver()
+            .drive() { [weak self] _ in
+                self?.createUserToFireAuth()
+                
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func createUserToFireAuth() {
+        
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (auth, err) in
+            if let err = err {
+                print("auth情報の保存に失敗: ", err)
+                return
+            }
+            
+            guard let uid = auth?.user.uid else { return }
+            print("auth情報の保存に成功: ", uid)
+        }
     }
     
     private func setUpGradientLayer() {
@@ -35,6 +93,9 @@ class RegisterViewController: UIViewController {
     }
     
     private func setUpLayout() {
+        
+        passwordTextField.isSecureTextEntry = true
+        
         let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton])
         baseStackView.axis = .vertical
         baseStackView.distribution = .fillEqually

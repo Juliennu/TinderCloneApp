@@ -65,7 +65,7 @@ class TopControlView: UIView {
     private func setUpBindings() {
         //tap時の処理
         tinderButton.rx.tap
-            //ドライバー：①mainスレッドで実行される②エラーを流さない
+            //ドライバー特徴：①mainスレッドで実行される②エラーを流さない
             .asDriver()
             .drive(onNext: { [weak self] _ in//循環参照防止のためweak selfにする
                 guard let self = self else { return }
