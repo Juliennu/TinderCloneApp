@@ -12,7 +12,7 @@ class RegisterTitleLabel: UILabel {
     init() {
         super.init(frame: .zero)
         self.text = "Tinder"
-        self.font = .boldSystemFont(ofSize: 80)
+        self.font = .systemFont(ofSize: 80, weight: .heavy)//.boldSystemFont(ofSize: 80)
         self.textColor = .white
         self.textAlignment = .center
     }

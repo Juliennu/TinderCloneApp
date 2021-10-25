@@ -7,8 +7,9 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-//登録情報が正しいかチェックする
+
 class RegisterViewModel {
     
     private let disposeBag = DisposeBag()
@@ -18,6 +19,7 @@ class RegisterViewModel {
     var nameTextOutput = PublishSubject<String>()
     var emailTextOutput = PublishSubject<String>()
     var passwordTextOutput = PublishSubject<String>()
+    var validRegisterSubjet = BehaviorSubject<Bool>(value: false)
     
     // MARK: observer
     //input: ViewControllerから入ってくる情報
@@ -33,29 +35,39 @@ class RegisterViewModel {
         passwordTextOutput.asObserver()
     }
     
+    //ViewControllerへ送る情報を格納
+    var validRegisterDriver: Driver<Bool> = Driver.never()
     
+    //入力情報をチェックしボタンのisEnabledを変更する
     init() {
         
-        nameTextOutput
-            .asObservable()
-            .subscribe { text in
-                print("name: ", text)
-            }
-            .disposed(by: disposeBag)
+        validRegisterDriver = validRegisterSubjet
+            .asDriver(onErrorDriveWith: Driver.empty())
         
-        emailTextOutput
+        let nameValid = nameTextOutput
             .asObservable()
-            .subscribe { text in
-                print("email: ", text)
+            .map { text -> Bool in
+                return text.count >= 5
             }
-            .disposed(by: disposeBag)
         
-        passwordTextOutput
+        let emailValid = emailTextOutput
             .asObservable()
-            .subscribe { text in
-                print("password: ", text)
+            .map { text -> Bool in
+                return text.count >= 5
             }
-            .disposed(by: disposeBag)
+        
+        let passwordValid = passwordTextOutput
+            .asObservable()
+            .map { text -> Bool in
+                return text.count >= 5
+            }
+        
+        //3つの引数が全てtrueだったらtrueを流す。１つでもfalseがあるとfalseを流す。
+        Observable.combineLatest(nameValid, emailValid, passwordValid) { $0 && $1 && $2 }
+        .subscribe { validAll in
+            self.validRegisterSubjet.onNext(validAll)
+        }
+        .disposed(by: disposeBag)
 
     }
 }
