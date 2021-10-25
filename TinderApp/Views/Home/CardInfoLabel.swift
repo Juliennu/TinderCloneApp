@@ -13,11 +13,11 @@ class CardInfoLabel: UILabel {
     //独自で作成したinitializerなのでoverrideをつけない
     
     //good,nope Label
-    init(frame: CGRect = .zero, labelText: String, color: UIColor) {//frameに初期値0を設定
-        super.init(frame: frame)
+    init(text: String, color: UIColor) {//frameに初期値0を設定
+        super.init(frame: .zero)
         
         font = .boldSystemFont(ofSize: 45)
-        text = labelText
+        self.text = text
         textColor = color
         layer.cornerRadius = 10
         layer.borderWidth = 3
@@ -27,12 +27,12 @@ class CardInfoLabel: UILabel {
     }
     
     //その他のtextLabelが白のラベル
-    init(frame: CGRect = .zero, labelText: String, labelFont: UIFont) {
-        super.init(frame: frame)
+    init(text: String, font: UIFont) {
+        super.init(frame: .zero)
         
-        font = labelFont
+        self.font = font
         textColor = .white
-        text = labelText
+        self.text = text
         numberOfLines = 0
         lineBreakMode = .byWordWrapping
 
