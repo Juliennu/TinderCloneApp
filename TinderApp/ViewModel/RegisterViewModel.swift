@@ -9,8 +9,20 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol RegisterViewModelInputs {
+    var nameTextInput: AnyObserver<String> { get }
+    var emailTextInput: AnyObserver<String> { get }
+    var passwordTextInput: AnyObserver<String> { get }
+}
 
-class RegisterViewModel {
+protocol RegisterViewModelOutputs {
+    var nameTextOutput: PublishSubject<String> { get }
+    var emailTextOutput: PublishSubject<String> { get }
+    var passwordTextOutput: PublishSubject<String> { get }
+}
+
+
+class RegisterViewModel: RegisterViewModelInputs, RegisterViewModelOutputs {
     
     private let disposeBag = DisposeBag()
     
@@ -47,7 +59,7 @@ class RegisterViewModel {
         let nameValid = nameTextOutput
             .asObservable()
             .map { text -> Bool in
-                return text.count >= 5
+                return text.count > 0
             }
         
         let emailValid = emailTextOutput
@@ -59,7 +71,7 @@ class RegisterViewModel {
         let passwordValid = passwordTextOutput
             .asObservable()
             .map { text -> Bool in
-                return text.count >= 5
+                return text.count >= 6
             }
         
         //3つの引数が全てtrueだったらtrueを流す。１つでもfalseがあるとfalseを流す。
