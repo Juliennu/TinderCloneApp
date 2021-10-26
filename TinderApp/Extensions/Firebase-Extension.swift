@@ -42,7 +42,6 @@ extension Firestore {
             "createdAt": Timestamp()
         ]
         
-        
         Firestore.firestore().collection("users").document(uid).setData(document) { err in
             if let err = err {
                 print("ユーザー情報のfirestoreへの保存に失敗: ", err)

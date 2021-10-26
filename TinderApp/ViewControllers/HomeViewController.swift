@@ -12,11 +12,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpViews()
+        setUpLayout()
+        showRegistrationView()
 
     }
     
-    func setUpViews() {
+    private func setUpLayout() {
         
         view.backgroundColor = .white
         let topControlView = TopControlView()
@@ -42,6 +43,16 @@ class HomeViewController: UIViewController {
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor)
         ]
             .forEach { $0.isActive = true }
+    }
+    
+    private func showRegistrationView() {
+        //レイアウトが完成してから処理を行うようタイミングを調整する
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            //画面遷移
+            let registerViewController = RegisterViewController()
+            registerViewController.modalPresentationStyle = .fullScreen
+            self.present(registerViewController, animated: true)
+        }
     }
 }
 
