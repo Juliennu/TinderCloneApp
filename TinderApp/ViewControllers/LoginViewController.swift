@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        passwordTextField.isSecureTextEntry = true
+        
         setUpGradientLayer()
         setUpLayout()
         setUpBindings()
@@ -62,7 +64,7 @@ class LoginViewController: UIViewController {
         dontHaveAccountButton.rx.tap
             .asDriver()
             .drive() { [weak self] _ in
-                self?.navigationController?.popToRootViewController(animated: true)
+                self?.navigationController?.popViewController(animated: true)//.popToRootViewController(animated: true)
             }
             .disposed(by: disposeBag)
         
@@ -79,6 +81,17 @@ class LoginViewController: UIViewController {
     
     private func loginUser() {
         
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (res, err) in
+            if let err = err {
+                print("ログインに失敗: ", err)
+                return
+            }
+            self.dismiss(animated: true)
+            print("ログインに成功")
+        }
     }
     
     private func setUpGradientLayer() {
@@ -100,7 +113,7 @@ class LoginViewController: UIViewController {
         view.addSubview(baseStackView)
         
         
-        titleLabel.anchor(bottom: baseStackView.topAnchor, centerX: view.centerXAnchor, height: 80, bottomPadding: 20)
+        titleLabel.anchor(bottom: baseStackView.topAnchor, centerX: view.centerXAnchor, height: 90, bottomPadding: 20)
         baseStackView.anchor(left: view.leftAnchor, right: view.rightAnchor, centerY: view.centerYAnchor, leftPadding: 40, rightPadding: 40)
         emailTextField.anchor(height: 45)
         
