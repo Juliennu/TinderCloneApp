@@ -16,16 +16,14 @@ class RegisterViewController: UIViewController {
     private let viewModel = RegisterViewModel()
     
     //MARK: UIViews
-    private let titleLabel = RegisterTitleLabel()
-
+    private let titleLabel = RegisterTitleLabel(text: "Tinder")
     private let nameTextField = RegisterTextField(placeholderText: "Name")
-    
     private let emailTextField = RegisterTextField(placeholderText: "email", keyboardType: .emailAddress)
-    
     private let passwordTextField = RegisterTextField(placeholderText: "password", keyboardType: .emailAddress)
-    
-    private let registerButton = RegisterButton()
+    private let registerButton = RegisterButton(title: "登録")
+    private let alreadyHaveAccountButton = UIButton(type: .system).creatAboutAccountButton(title: "既にアカウントをお持ちの方はこちら")
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +32,13 @@ class RegisterViewController: UIViewController {
         setUpGradientLayer()
         setUpLayout()
         setUpBindings()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //navigationBarを見えなくする
+        navigationController?.isNavigationBarHidden = true
     }
     
     //MARK: Methods
@@ -68,11 +73,19 @@ class RegisterViewController: UIViewController {
         }
         .disposed(by: disposeBag)
         
+        //Buttonのバインディング
         registerButton.rx.tap
             .asDriver()
             .drive() { [weak self] _ in
                 self?.createUser()
                 
+            }
+            .disposed(by: disposeBag)
+        
+        alreadyHaveAccountButton.rx.tap
+            .asDriver()
+            .drive() { [weak self] _ in
+                self?.transitionToLoginVC()
             }
             .disposed(by: disposeBag)
         
@@ -84,6 +97,14 @@ class RegisterViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
+    }
+    
+    private func transitionToLoginVC() {
+        let loginVC = LoginViewController()
+        self.navigationController?.pushViewController(loginVC, animated: true)
+//        loginVC.modalPresentationStyle = .fullScreen
+//        loginVC.modalTransitionStyle = .partialCurl
+//        self.present(loginVC, animated: true)
     }
     
     private func createUser() {
@@ -112,14 +133,13 @@ class RegisterViewController: UIViewController {
     
     private func setUpLayout() {
         
-        let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton])
+        let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton, alreadyHaveAccountButton])
         baseStackView.axis = .vertical
         baseStackView.distribution = .fillEqually
         baseStackView.spacing = 20
         
         view.addSubview(titleLabel)
         view.addSubview(baseStackView)
-        
         
         titleLabel.anchor(bottom: baseStackView.topAnchor, centerX: view.centerXAnchor, height: 80, bottomPadding: 20)
         baseStackView.anchor(left: view.leftAnchor, right: view.rightAnchor, centerY: view.centerYAnchor, leftPadding: 40, rightPadding: 40)

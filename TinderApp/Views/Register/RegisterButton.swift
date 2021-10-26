@@ -20,11 +20,10 @@ class RegisterButton: UIButton {
     }
     
     
-    
-    init() {
+    init(title: String) {
         super.init(frame: .zero)
         
-        setTitle("Register", for: .normal)
+        setTitle(title, for: .normal)
         backgroundColor = Colors.pinkColor
         setTitleColor(.white, for: .normal)
         layer.cornerRadius = 10

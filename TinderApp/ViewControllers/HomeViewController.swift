@@ -50,8 +50,10 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             //画面遷移
             let registerViewController = RegisterViewController()
-            registerViewController.modalPresentationStyle = .fullScreen
-            self.present(registerViewController, animated: true)
+            //navigationControllerを設定
+            let nav = UINavigationController(rootViewController: registerViewController)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
         }
     }
 }

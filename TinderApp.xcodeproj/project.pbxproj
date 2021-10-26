@@ -39,6 +39,7 @@
 		1A38610B2726848800F1A234 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A38610A2726848800F1A234 /* FirebaseStorage */; };
 		1A38610E272697DF00F1A234 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610D272697DF00F1A234 /* RegisterViewModel.swift */; };
 		1A3861102726BC0100F1A234 /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610F2726BC0100F1A234 /* Firebase-Extension.swift */; };
+		1A3861122727A8D200F1A234 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3861112727A8D200F1A234 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		1A3860FE27260DE800F1A234 /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		1A38610D272697DF00F1A234 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		1A38610F2726BC0100F1A234 /* Firebase-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase-Extension.swift"; sourceTree = "<group>"; };
+		1A3861112727A8D200F1A234 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				1A3860B327214E1D00F1A234 /* HomeViewController.swift */,
 				1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */,
+				1A3861112727A8D200F1A234 /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
 				1A3860DF2722958900F1A234 /* CardView.swift in Sources */,
+				1A3861122727A8D200F1A234 /* LoginViewController.swift in Sources */,
 				1A3860F72725FBFA00F1A234 /* RegisterViewController.swift in Sources */,
 				1A38610E272697DF00F1A234 /* RegisterViewModel.swift in Sources */,
 				1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */,
