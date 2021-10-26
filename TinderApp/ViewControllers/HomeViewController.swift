@@ -6,15 +6,45 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
+    
+    private let logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("ログアウト", for: .normal)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpLayout()
-        showRegistrationView()
+        logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkUserAuth()
+    }
+    
+    private func checkUserAuth() {
+        //ログインユーザーがいない場合
+        if Auth.auth().currentUser?.uid == nil {
+            transitionToRegistrationVC()
+        }
+    }
+    
+    @objc private func tappedLogoutButton() {
+        
+        do {
+            try Auth.auth().signOut()
+            transitionToRegistrationVC()
+        } catch {
+            print("ログアウトに失敗")
+        }
     }
     
     private func setUpLayout() {
@@ -30,7 +60,7 @@ class HomeViewController: UIViewController {
         stackView.axis = .vertical
         
         self.view.addSubview(stackView)
-        
+        self.view.addSubview(logoutButton)
         //StackViewのレイアウト
         [
             topControlView.heightAnchor.constraint(equalToConstant: 100),
@@ -41,11 +71,14 @@ class HomeViewController: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor)
+            
         ]
             .forEach { $0.isActive = true }
+        
+        logoutButton.anchor(bottom: view.bottomAnchor, left: view.leftAnchor, bottomPadding: 20, leftPadding: 20)
     }
     
-    private func showRegistrationView() {
+    private func transitionToRegistrationVC() {
         //レイアウトが完成してから処理を行うようタイミングを調整する
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             //画面遷移
@@ -56,6 +89,11 @@ class HomeViewController: UIViewController {
             self.present(nav, animated: true)
         }
     }
+    
+//    private func transitionToLoginVC() {
+//        let loginVC = LoginViewController()
+//
+//    }
 }
 
 
