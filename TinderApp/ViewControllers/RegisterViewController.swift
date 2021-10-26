@@ -71,7 +71,7 @@ class RegisterViewController: UIViewController {
         registerButton.rx.tap
             .asDriver()
             .drive() { [weak self] _ in
-                self?.createUserToFireAuth()
+                self?.createUser()
                 
             }
             .disposed(by: disposeBag)
@@ -86,42 +86,19 @@ class RegisterViewController: UIViewController {
 
     }
     
-    private func createUserToFireAuth() {
+    private func createUser() {
+        let name = nameTextField.text
+        let email = emailTextField.text
+        let password = passwordTextField.text
         
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (auth, err) in
-            if let err = err {
-                print("auth情報の保存に失敗: ", err)
-                return
+        Auth.createUserToFireAuth(name: name, email: email, password: password) { success in
+            if  success {
+                print("処理が完了")
             }
-            
-            guard let uid = auth?.user.uid else { return }
-            self.setUserDataToFirestore(email: email, uid: uid)
         }
     }
     
-    private func setUserDataToFirestore(email: String, uid: String) {
-        
-        guard let name = nameTextField.text else { return }
-        
-        let document: [String: Any] = [
-            "name": name,
-            "email": email,
-            "createdAt": Timestamp()
-        ]
-        
-        
-        Firestore.firestore().collection("users").document(uid).setData(document) { err in
-            if let err = err {
-                print("ユーザー情報のfirestoreへの保存に失敗: ", err)
-                return
-            }
-            
-            print("ユーザー情報のfirestoreへの保存に成功")
-        }
-    }
+
     
     private func setUpGradientLayer() {
         let layer = CAGradientLayer()
@@ -132,7 +109,6 @@ class RegisterViewController: UIViewController {
     }
     
     private func setUpLayout() {
-        
         
         let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton])
         baseStackView.axis = .vertical
