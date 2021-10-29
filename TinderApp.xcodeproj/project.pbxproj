@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A29F0E52727E7D200F77F01 /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 1A29F0E42727E7D200F77F01 /* PKHUD */; };
 		1A3860B027214E1D00F1A234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860AF27214E1D00F1A234 /* AppDelegate.swift */; };
 		1A3860B227214E1D00F1A234 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860B127214E1D00F1A234 /* SceneDelegate.swift */; };
 		1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860B327214E1D00F1A234 /* HomeViewController.swift */; };
@@ -40,6 +41,7 @@
 		1A38610E272697DF00F1A234 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610D272697DF00F1A234 /* RegisterViewModel.swift */; };
 		1A3861102726BC0100F1A234 /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610F2726BC0100F1A234 /* Firebase-Extension.swift */; };
 		1A3861122727A8D200F1A234 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3861112727A8D200F1A234 /* LoginViewController.swift */; };
+		1AC58EC6272A872100C21303 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC58EC5272A872100C21303 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,7 @@
 		1A38610D272697DF00F1A234 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		1A38610F2726BC0100F1A234 /* Firebase-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase-Extension.swift"; sourceTree = "<group>"; };
 		1A3861112727A8D200F1A234 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1AC58EC5272A872100C21303 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A29F0E52727E7D200F77F01 /* PKHUD in Frameworks */,
 				1A3860DB2722639600F1A234 /* RxSwift in Frameworks */,
 				1A3861052726848800F1A234 /* FirebaseAuth in Frameworks */,
 				1A3860D92722639600F1A234 /* RxRelay in Frameworks */,
@@ -110,6 +114,7 @@
 		1A3860AE27214E1D00F1A234 /* TinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AC58EC4272A870300C21303 /* Models */,
 				1A3860E42725BDBD00F1A234 /* Design */,
 				1A3860CC2721BA8A00F1A234 /* Extensions */,
 				1A3860C927218E9B00F1A234 /* Views */,
@@ -196,6 +201,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1AC58EC4272A870300C21303 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1AC58EC5272A872100C21303 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +234,7 @@
 				1A3861062726848800F1A234 /* FirebaseCrashlytics */,
 				1A3861082726848800F1A234 /* FirebaseFirestore */,
 				1A38610A2726848800F1A234 /* FirebaseStorage */,
+				1A29F0E42727E7D200F77F01 /* PKHUD */,
 			);
 			productName = TinderApp;
 			productReference = 1A3860AC27214E1D00F1A234 /* TinderApp.app */;
@@ -253,6 +267,7 @@
 			packageReferences = (
 				1A3860D52722639600F1A234 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				1A29F0E32727E7D200F77F01 /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = 1A3860AD27214E1D00F1A234 /* Products */;
 			projectDirPath = "";
@@ -303,6 +318,7 @@
 				1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */,
 				1A3860E12725BC5200F1A234 /* UIColor-Extension.swift in Sources */,
 				1A3860E62725C97C00F1A234 /* CardInfoLabel.swift in Sources */,
+				1AC58EC6272A872100C21303 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +532,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1A29F0E32727E7D200F77F01 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		1A3860D52722639600F1A234 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -535,6 +559,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1A29F0E42727E7D200F77F01 /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A29F0E32727E7D200F77F01 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
 		1A3860D62722639600F1A234 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1A3860D52722639600F1A234 /* XCRemoteSwiftPackageReference "RxSwift" */;

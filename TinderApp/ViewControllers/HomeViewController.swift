@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
     
@@ -15,7 +16,8 @@ class HomeViewController: UIViewController {
         button.setTitle("ログアウト", for: .normal)
         return button
     }()
-
+    
+    // MARK: Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,12 +26,22 @@ class HomeViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Firestore.fetchUserFromFirestore(uid: uid)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         checkUserAuth()
     }
     
+    
+    // MARK: Methods
+
     private func checkUserAuth() {
         //ログインユーザーがいない場合
         if Auth.auth().currentUser?.uid == nil {

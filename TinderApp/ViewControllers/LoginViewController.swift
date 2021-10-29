@@ -7,6 +7,7 @@
 import UIKit
 import FirebaseAuth
 import RxSwift
+import PKHUD
 
 class LoginViewController: UIViewController {
     
@@ -56,7 +57,7 @@ class LoginViewController: UIViewController {
         loginButton.rx.tap
             .asDriver()
             .drive() { [weak self] _ in
-                self?.loginUser()
+                self?.login()
                 
             }
             .disposed(by: disposeBag)
@@ -79,18 +80,22 @@ class LoginViewController: UIViewController {
     }
     
     
-    private func loginUser() {
+    private func login() {
         
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
+        let email = emailTextField.text
+        let password = passwordTextField.text
+
+        HUD.show(.progress)
         
-        Auth.auth().signIn(withEmail: email, password: password) { (res, err) in
-            if let err = err {
-                print("ログインに失敗: ", err)
-                return
+        Auth.loginWithFireAuth(email: email, password: password) { success in
+            HUD.hide()
+            
+            if success {
+                HUD.flash(.success, delay: 0.5)
+                self.dismiss(animated: true)
+            } else {
+                HUD.flash(.error, delay: 0.5)
             }
-            self.dismiss(animated: true)
-            print("ログインに成功")
         }
     }
     
