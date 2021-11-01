@@ -28,10 +28,10 @@ class CardView: UIView {
     
     private let nopeLabel = CardInfoLabel(text: "NOPE", color: Colors.redColor)
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(user: User) {
+        super.init(frame: .zero)
         
-        setUpLayout()
+        setUpLayout(user: user)
         setUpGradientLayer()
         
         //左右への動きを認識するジェスチャーを設定
@@ -103,7 +103,7 @@ class CardView: UIView {
                                                 
                                                 
     
-    private func setUpLayout() {
+    private func setUpLayout(user: User) {
         
         let infoVerticalStackView = UIStackView(arrangedSubviews: [residenceLabel, hobbyLabel, introductionLabel])
         infoVerticalStackView.axis = .vertical
@@ -111,25 +111,23 @@ class CardView: UIView {
         
         let baseStackView = UIStackView(arrangedSubviews: [infoVerticalStackView, infoButton])
         baseStackView.axis = .horizontal
-        
+        // Viewの配置を作成
         addSubview(cardImageView)
         addSubview(nameLabel)
         addSubview(baseStackView)
         addSubview(goodLabel)
         addSubview(nopeLabel)
 
-        
         cardImageView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 10, rightPadding: 10)
-        
         baseStackView.anchor(bottom: cardImageView.bottomAnchor, left: cardImageView.leftAnchor, right: cardImageView.rightAnchor, bottomPadding: 20, leftPadding: 20, rightPadding: 20)
-        
         infoButton.anchor(width: 40)
-        
         nameLabel.anchor(bottom: baseStackView.topAnchor, left: cardImageView.leftAnchor, bottomPadding: 10, leftPadding: 20)
-        
         goodLabel.anchor(top: cardImageView.topAnchor, left: cardImageView.leftAnchor, width: 140, height: 55, topPadding: 25, leftPadding: 25)
-        
         nopeLabel.anchor(top: cardImageView.topAnchor, right: cardImageView.rightAnchor, width: 140, height: 55, topPadding: 25, rightPadding: 25)
+        
+        //ユーザー情報をViewに反映
+        nameLabel.text = user.name
+        introductionLabel.text = user.email
 
     }
     
