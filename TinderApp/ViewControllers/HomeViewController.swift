@@ -9,9 +9,12 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import PKHUD
+import RxCocoa
+import RxSwift
 
 class HomeViewController: UIViewController {
     
+    private let disposeBag = DisposeBag()
     //ログインユーザー
     private var user: User?
     //ログイン者以外のユーザー
@@ -32,8 +35,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setUpLayout()
-        logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
-
+        setUpBindings()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,15 +85,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @objc private func tappedLogoutButton() {
-        
-        do {
-            try Auth.auth().signOut()
-            transitionToRegistrationVC()
-        } catch {
-            print("ログアウトに失敗")
-        }
-    }
+
     
     private func setUpLayout() {
         
@@ -132,10 +127,17 @@ class HomeViewController: UIViewController {
         }
     }
     
-//    private func transitionToLoginVC() {
-//        let loginVC = LoginViewController()
-//
-//    }
+    private func setUpBindings() {
+        
+        topControlView.profileButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                let profileVC = ProfileViewController()
+                self?.present(profileVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+
+    }
 }
 
 

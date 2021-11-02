@@ -42,6 +42,9 @@
 		1A3861102726BC0100F1A234 /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610F2726BC0100F1A234 /* Firebase-Extension.swift */; };
 		1A3861122727A8D200F1A234 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3861112727A8D200F1A234 /* LoginViewController.swift */; };
 		1AC58EC6272A872100C21303 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC58EC5272A872100C21303 /* User.swift */; };
+		1AEC0F3D27313ED700C822C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F3C27313ED700C822C8 /* ProfileViewController.swift */; };
+		1AEC0F402731445700C822C8 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */; };
+		1AEC0F42273145D400C822C8 /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F41273145D400C822C8 /* ProfileLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,9 @@
 		1A38610F2726BC0100F1A234 /* Firebase-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase-Extension.swift"; sourceTree = "<group>"; };
 		1A3861112727A8D200F1A234 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1AC58EC5272A872100C21303 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1AEC0F3C27313ED700C822C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		1AEC0F41273145D400C822C8 /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 				1A3860B327214E1D00F1A234 /* HomeViewController.swift */,
 				1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */,
 				1A3861112727A8D200F1A234 /* LoginViewController.swift */,
+				1AEC0F3C27313ED700C822C8 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 		1A3860C927218E9B00F1A234 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1AEC0F3E2731443D00C822C8 /* Profile */,
 				1A3860F82726043500F1A234 /* Home */,
 				1A3860F92726044F00F1A234 /* Register */,
 			);
@@ -207,6 +215,15 @@
 				1AC58EC5272A872100C21303 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1AEC0F3E2731443D00C822C8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */,
+				1AEC0F41273145D400C822C8 /* ProfileLabel.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,12 +313,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AEC0F42273145D400C822C8 /* ProfileLabel.swift in Sources */,
 				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
 				1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */,
 				1A3860FD2726091900F1A234 /* RegisterTitleLabel.swift in Sources */,
 				1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */,
 				1A3860E32725BDA400F1A234 /* Colors.swift in Sources */,
 				1A3860D22721C7D800F1A234 /* BottomButtonView.swift in Sources */,
+				1AEC0F3D27313ED700C822C8 /* ProfileViewController.swift in Sources */,
 				1A3860FF27260DE800F1A234 /* RegisterButton.swift in Sources */,
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
@@ -317,6 +336,7 @@
 				1A3860D427224B0400F1A234 /* TopControlView.swift in Sources */,
 				1A3860CE2721BAA900F1A234 /* UIImage-Extension.swift in Sources */,
 				1A3860E12725BC5200F1A234 /* UIColor-Extension.swift in Sources */,
+				1AEC0F402731445700C822C8 /* ProfileImageView.swift in Sources */,
 				1A3860E62725C97C00F1A234 /* CardInfoLabel.swift in Sources */,
 				1AC58EC6272A872100C21303 /* User.swift in Sources */,
 			);

@@ -14,8 +14,7 @@ class CardImageView: UIImageView {
         
         layer.cornerRadius = 10
         contentMode = .scaleAspectFill
-        image = UIImage(named: "wilson")//dogAndBards
-        //イメージが境界に合わせて切り取られる
+        image = UIImage(named: "wilson")
         clipsToBounds = true
     }
     
