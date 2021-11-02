@@ -24,11 +24,11 @@ class HomeViewController: UIViewController {
     let cardView = UIView()//CardView()
     let bottomControlView = BottomControlView()
     
-    private let logoutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("ログアウト", for: .normal)
-        return button
-    }()
+//    private let logoutButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("ログアウト", for: .normal)
+//        return button
+//    }()
     
     // MARK: Life Cycle Methods
     override func viewDidLoad() {
@@ -97,7 +97,7 @@ class HomeViewController: UIViewController {
         stackView.axis = .vertical
         
         self.view.addSubview(stackView)
-        self.view.addSubview(logoutButton)
+//        self.view.addSubview(logoutButton)
         //StackViewのレイアウト
         [
             topControlView.heightAnchor.constraint(equalToConstant: 100),
@@ -112,7 +112,7 @@ class HomeViewController: UIViewController {
         ]
             .forEach { $0.isActive = true }
         
-        logoutButton.anchor(bottom: view.bottomAnchor, left: view.leftAnchor, bottomPadding: 20, leftPadding: 20)
+//        logoutButton.anchor(bottom: view.bottomAnchor, left: view.leftAnchor, bottomPadding: 20, leftPadding: 20)
     }
     
     private func transitionToRegistrationVC() {
