@@ -57,6 +57,7 @@ class CardView: UIView {
     @objc private func panCardView(gesture: UIPanGestureRecognizer) {
 
         let translation = gesture.translation(in: self)
+        guard let view = gesture.view else { return }
         
         //動かしている時の動き
         if gesture.state == .changed {
@@ -64,7 +65,7 @@ class CardView: UIView {
 
         //手を離した時の動き
         } else if gesture.state == .ended {
-            handlePanEnded()
+            handlePanEnded(view: view, translation: translation)
         }
     }
     
@@ -88,16 +89,49 @@ class CardView: UIView {
 //        print("translation.x: ", translation.x)
     }
     
-    private func handlePanEnded() {
-        //いろんな動き(バウンドなど)をつけられる
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
-            //transformを元に戻す
-            self.transform = .identity
-            //アニメーションを認識させる
-            self.layoutIfNeeded()
+    private func handlePanEnded(view: UIView, translation: CGPoint) {
+        //NOPEの時
+        if translation.x < -120 {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                
+                let degree: CGFloat = -600 / 40
+                let angle = degree * .pi / 180
+                
+                let rotateTranslation = CGAffineTransform(rotationAngle: angle)
+                view.transform = rotateTranslation.translatedBy(x: -600, y: 100)
+                self.layoutIfNeeded()
+                
+            } completion: { _ in
+                self.removeFromSuperview()
+            }
+        }
+        // GOODの時
+        else if translation.x > 120 {
             
-            self.goodLabel.alpha = 0
-            self.nopeLabel.alpha = 0
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                
+                let degree: CGFloat = 600 / 40
+                let angle = degree * .pi / 180
+                
+                let rotateTranslation = CGAffineTransform(rotationAngle: angle)
+                view.transform = rotateTranslation.translatedBy(x: 600, y: 100)
+                self.layoutIfNeeded()
+                
+            } completion: { _ in
+                self.removeFromSuperview()
+            }
+            
+        } else {
+            //いろんな動き(バウンドなど)をつけられる
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                //transformを元に戻す
+                self.transform = .identity
+                //アニメーションを認識させる
+                self.layoutIfNeeded()
+                
+                self.goodLabel.alpha = 0
+                self.nopeLabel.alpha = 0
+            }
         }
     }
                                                 
