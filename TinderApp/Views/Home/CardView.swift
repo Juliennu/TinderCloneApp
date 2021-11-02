@@ -28,10 +28,10 @@ class CardView: UIView {
     
     private let nopeLabel = CardInfoLabel(text: "NOPE", color: Colors.redColor)
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(user: User) {
+        super.init(frame: .zero)
         
-        setUpLayout()
+        setUpLayout(user: user)
         setUpGradientLayer()
         
         //左右への動きを認識するジェスチャーを設定
@@ -57,6 +57,7 @@ class CardView: UIView {
     @objc private func panCardView(gesture: UIPanGestureRecognizer) {
 
         let translation = gesture.translation(in: self)
+        guard let view = gesture.view else { return }
         
         //動かしている時の動き
         if gesture.state == .changed {
@@ -64,7 +65,7 @@ class CardView: UIView {
 
         //手を離した時の動き
         } else if gesture.state == .ended {
-            handlePanEnded()
+            handlePanEnded(view: view, translation: translation)
         }
     }
     
@@ -88,22 +89,55 @@ class CardView: UIView {
 //        print("translation.x: ", translation.x)
     }
     
-    private func handlePanEnded() {
-        //いろんな動き(バウンドなど)をつけられる
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
-            //transformを元に戻す
-            self.transform = .identity
-            //アニメーションを認識させる
-            self.layoutIfNeeded()
+    private func handlePanEnded(view: UIView, translation: CGPoint) {
+        //NOPEの時
+        if translation.x < -120 {
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                
+                let degree: CGFloat = -600 / 40
+                let angle = degree * .pi / 180
+                
+                let rotateTranslation = CGAffineTransform(rotationAngle: angle)
+                view.transform = rotateTranslation.translatedBy(x: -600, y: 100)
+                self.layoutIfNeeded()
+                
+            } completion: { _ in
+                self.removeFromSuperview()
+            }
+        }
+        // GOODの時
+        else if translation.x > 120 {
             
-            self.goodLabel.alpha = 0
-            self.nopeLabel.alpha = 0
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                
+                let degree: CGFloat = 600 / 40
+                let angle = degree * .pi / 180
+                
+                let rotateTranslation = CGAffineTransform(rotationAngle: angle)
+                view.transform = rotateTranslation.translatedBy(x: 600, y: 100)
+                self.layoutIfNeeded()
+                
+            } completion: { _ in
+                self.removeFromSuperview()
+            }
+            
+        } else {
+            //いろんな動き(バウンドなど)をつけられる
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                //transformを元に戻す
+                self.transform = .identity
+                //アニメーションを認識させる
+                self.layoutIfNeeded()
+                
+                self.goodLabel.alpha = 0
+                self.nopeLabel.alpha = 0
+            }
         }
     }
                                                 
                                                 
     
-    private func setUpLayout() {
+    private func setUpLayout(user: User) {
         
         let infoVerticalStackView = UIStackView(arrangedSubviews: [residenceLabel, hobbyLabel, introductionLabel])
         infoVerticalStackView.axis = .vertical
@@ -111,25 +145,23 @@ class CardView: UIView {
         
         let baseStackView = UIStackView(arrangedSubviews: [infoVerticalStackView, infoButton])
         baseStackView.axis = .horizontal
-        
+        // Viewの配置を作成
         addSubview(cardImageView)
         addSubview(nameLabel)
         addSubview(baseStackView)
         addSubview(goodLabel)
         addSubview(nopeLabel)
 
-        
         cardImageView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: 10, rightPadding: 10)
-        
         baseStackView.anchor(bottom: cardImageView.bottomAnchor, left: cardImageView.leftAnchor, right: cardImageView.rightAnchor, bottomPadding: 20, leftPadding: 20, rightPadding: 20)
-        
         infoButton.anchor(width: 40)
-        
         nameLabel.anchor(bottom: baseStackView.topAnchor, left: cardImageView.leftAnchor, bottomPadding: 10, leftPadding: 20)
-        
         goodLabel.anchor(top: cardImageView.topAnchor, left: cardImageView.leftAnchor, width: 140, height: 55, topPadding: 25, leftPadding: 25)
-        
         nopeLabel.anchor(top: cardImageView.topAnchor, right: cardImageView.rightAnchor, width: 140, height: 55, topPadding: 25, rightPadding: 25)
+        
+        //ユーザー情報をViewに反映
+        nameLabel.text = user.name
+        introductionLabel.text = user.email
 
     }
     

@@ -7,15 +7,27 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
+import PKHUD
 
 class HomeViewController: UIViewController {
+    
+    //ログインユーザー
+    private var user: User?
+    //ログイン者以外のユーザー
+    private var users = [User]()
+    
+    let topControlView = TopControlView()
+    let cardView = UIView()//CardView()
+    let bottomControlView = BottomControlView()
     
     private let logoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("ログアウト", for: .normal)
         return button
     }()
-
+    
+    // MARK: Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,12 +36,45 @@ class HomeViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        //ログインユーザーの情報を取得する
+        Firestore.fetchUserFromFirestore(uid: uid) { user in
+            if let user = user {
+                self.user = user
+            }
+        }
+        fetchUsers()
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         checkUserAuth()
     }
     
+    
+    // MARK: Methods
+    
+    private func fetchUsers() {
+        HUD.show(.progress)
+        Firestore.fetchUserFromFirestore { users in
+            HUD.hide()
+            self.users = users
+            print("ユーザー情報の取得に成功")
+            
+            //取得したユーザーごとにカードビューを生成
+            self.users.forEach { (user) in
+                let card = CardView(user: user)
+                self.cardView.addSubview(card)
+                card.anchor(top: self.cardView.topAnchor, bottom: self.cardView.bottomAnchor, left: self.cardView.leftAnchor, right: self.cardView.rightAnchor)
+            }
+        }
+    }
+
     private func checkUserAuth() {
         //ログインユーザーがいない場合
         if Auth.auth().currentUser?.uid == nil {
@@ -50,9 +95,6 @@ class HomeViewController: UIViewController {
     private func setUpLayout() {
         
         view.backgroundColor = .white
-        let topControlView = TopControlView()
-        let cardView = CardView()
-        let bottomControlView = BottomControlView()
         
         let stackView = UIStackView(arrangedSubviews: [topControlView, cardView, bottomControlView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
