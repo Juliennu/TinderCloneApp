@@ -92,34 +92,12 @@ class CardView: UIView {
     private func handlePanEnded(view: UIView, translation: CGPoint) {
         //NOPEの時
         if translation.x < -120 {
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
-                
-                let degree: CGFloat = -600 / 40
-                let angle = degree * .pi / 180
-                
-                let rotateTranslation = CGAffineTransform(rotationAngle: angle)
-                view.transform = rotateTranslation.translatedBy(x: -600, y: 100)
-                self.layoutIfNeeded()
-                
-            } completion: { _ in
-                self.removeFromSuperview()
-            }
+            view.removeCardViewAnimation(x: -600)
+
         }
         // GOODの時
         else if translation.x > 120 {
-            
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
-                
-                let degree: CGFloat = 600 / 40
-                let angle = degree * .pi / 180
-                
-                let rotateTranslation = CGAffineTransform(rotationAngle: angle)
-                view.transform = rotateTranslation.translatedBy(x: 600, y: 100)
-                self.layoutIfNeeded()
-                
-            } completion: { _ in
-                self.removeFromSuperview()
-            }
+            view.removeCardViewAnimation(x: 600)
             
         } else {
             //いろんな動き(バウンドなど)をつけられる
@@ -135,8 +113,7 @@ class CardView: UIView {
         }
     }
                                                 
-                                                
-    
+                                    
     private func setUpLayout(user: User) {
         
         let infoVerticalStackView = UIStackView(arrangedSubviews: [residenceLabel, hobbyLabel, introductionLabel])
