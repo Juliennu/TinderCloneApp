@@ -23,6 +23,9 @@ class ProfileViewController: UIViewController {
     //lazy: collectionView.delegate = self など自分自身にアクセスするために必要。varにする(let不可)。
     lazy var infoCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        //collectionViewのセルのレイアウトなどをカスタム
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize//中のViewを元にして自動的に大きさが変化する動きをしてくれる
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -68,6 +71,7 @@ class ProfileViewController: UIViewController {
         
         nameLabel.text = "Juri, 26"
         
+        
         view.addSubview(saveButton)
         view.addSubview(logoutButton)
         view.addSubview(profileImageView)
@@ -105,6 +109,22 @@ class InfoCollectionViewCell: UICollectionViewCell {
         super.init(frame: .zero)
         
         backgroundColor = .green
+        setUpLayout()
+    }
+    
+    private func setUpLayout() {
+        
+        let view = UIView()
+        view.backgroundColor = .blue
+        
+        let baseStackView = UIStackView(arrangedSubviews: [view])
+        baseStackView.axis = .vertical
+        baseStackView.spacing = 15
+        addSubview(baseStackView)
+        //cell内のviewの大きさを変えることで自動的にcellの大きさが変わってくれる
+        view.anchor(width: UIScreen.main.bounds.width - 40, height: 80)
+        baseStackView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, topPadding: 10, leftPadding: 20, rightPadding: 20)
+
     }
     
     required init?(coder: NSCoder) {
