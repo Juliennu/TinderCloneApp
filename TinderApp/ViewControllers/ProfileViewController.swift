@@ -8,11 +8,21 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import RxSwift
+import RxCocoa
 
 class ProfileViewController: UIViewController {
     
+    private let disposeBag = DisposeBag()
     var user: User?
     private let cellId = "cellId"
+    
+    private var name = ""
+    private var age = ""
+    private var email = ""
+    private var residence = ""
+    private var hobby = ""
+    private var introduction = ""
     
     // MARK: UIViews
     let saveButton = UIButton(type: .system).createProfileTopButton(title: "保存")
@@ -38,9 +48,32 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         setUpLayout()
+        setUpBindings()
         logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
+
+    }
+    
+    private func setUpBindings() {
+        saveButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                //1. TextFieldの内容を更新
+                let dic = [
+                    "name": self?.name,
+                    "age": self?.age,
+                    "email": self?.email,
+                    "residence": self?.residence,
+                    "hobby": self?.hobby,
+                    "introduction": self?.introduction
+                ]
+                
+                //2. Firestoreの情報を更新
+                Firestore.updateUserInfo(dic: dic) {
+                    print("更新完了")
+                }
+            }
+            .disposed(by: disposeBag)
 
     }
     
@@ -103,7 +136,53 @@ extension ProfileViewController : UICollectionViewDelegate, UICollectionViewData
         let cell = infoCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! InfoCollectionViewCell
         //ログインユーザー情報を渡す
         cell.user = self.user
+        setUpCellBindings(cell: cell)
         return cell
+    }
+    
+    //TextFieldの変更内容を反映
+    private func setUpCellBindings(cell: InfoCollectionViewCell) {
+        cell.nameTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text in
+                self?.name = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.ageTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text in
+                self?.age = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.emailTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text in
+                self?.email = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.residenceTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text in
+                self?.residence = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.hobbyTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text in
+                self?.hobby = text ?? ""
+            }
+            .disposed(by: disposeBag)
+        
+        cell.introductionTextField.rx.text
+            .asDriver()
+            .drive { [weak self] text in
+                self?.introduction = text ?? ""
+            }
+            .disposed(by: disposeBag)
     }
 }
 
