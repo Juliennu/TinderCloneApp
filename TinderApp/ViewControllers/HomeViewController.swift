@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
         //ログインユーザーの情報を取得する
-        Firestore.fetchUserFromFirestore(uid: uid) { user in
+        Firestore.fetchUserFromFirestore(uid: uid) { (user) in
             if let user = user {
                 self.user = user
             }
@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
         Firestore.fetchUserFromFirestore { users in
             HUD.hide()
             self.users = users
-            print("ユーザー情報の取得に成功")
+            print("自分以外のユーザー情報の取得に成功")
             
             //取得したユーザーごとにカードビューを生成
             self.users.forEach { (user) in
@@ -116,15 +116,12 @@ class HomeViewController: UIViewController {
     }
     
     private func transitionToRegistrationVC() {
-        //レイアウトが完成してから処理を行うようタイミングを調整する
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             //画面遷移
             let registerViewController = RegisterViewController()
             //navigationControllerを設定
             let nav = UINavigationController(rootViewController: registerViewController)
             nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true)
-        }
     }
     
     private func setUpBindings() {
@@ -133,6 +130,8 @@ class HomeViewController: UIViewController {
             .asDriver()
             .drive { [weak self] _ in
                 let profileVC = ProfileViewController()
+                //ProfielVCにユーザー情報を渡す
+                profileVC.user = self?.user
                 self?.present(profileVC, animated: true)
             }
             .disposed(by: disposeBag)

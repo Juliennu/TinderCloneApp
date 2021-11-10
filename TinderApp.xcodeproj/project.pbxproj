@@ -33,11 +33,6 @@
 		1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FA272604AD00F1A234 /* RegisterTextField.swift */; };
 		1A3860FD2726091900F1A234 /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FC2726091800F1A234 /* RegisterTitleLabel.swift */; };
 		1A3860FF27260DE800F1A234 /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3860FE27260DE800F1A234 /* RegisterButton.swift */; };
-		1A3861032726848800F1A234 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3861022726848800F1A234 /* FirebaseAnalytics */; };
-		1A3861052726848800F1A234 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3861042726848800F1A234 /* FirebaseAuth */; };
-		1A3861072726848800F1A234 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3861062726848800F1A234 /* FirebaseCrashlytics */; };
-		1A3861092726848800F1A234 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A3861082726848800F1A234 /* FirebaseFirestore */; };
-		1A38610B2726848800F1A234 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A38610A2726848800F1A234 /* FirebaseStorage */; };
 		1A38610E272697DF00F1A234 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610D272697DF00F1A234 /* RegisterViewModel.swift */; };
 		1A3861102726BC0100F1A234 /* Firebase-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A38610F2726BC0100F1A234 /* Firebase-Extension.swift */; };
 		1A3861122727A8D200F1A234 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3861112727A8D200F1A234 /* LoginViewController.swift */; };
@@ -46,6 +41,8 @@
 		1AEC0F402731445700C822C8 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */; };
 		1AEC0F42273145D400C822C8 /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F41273145D400C822C8 /* ProfileLabel.swift */; };
 		1AEC0F44273BEF2A00C822C8 /* ProfileTextField.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F43273BEF2A00C822C8 /* ProfileTextField.swift.swift */; };
+		1AEC0F47273BF61D00C822C8 /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F46273BF61D00C822C8 /* InfoCollectionViewCell.swift */; };
+		7319079A83ACB1A2E8BB4DBC /* Pods_TinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FDF412AA00E455209798E /* Pods_TinderApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +78,10 @@
 		1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		1AEC0F41273145D400C822C8 /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
 		1AEC0F43273BEF2A00C822C8 /* ProfileTextField.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift.swift; sourceTree = "<group>"; };
+		1AEC0F46273BF61D00C822C8 /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D7FDF412AA00E455209798E /* Pods_TinderApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TinderApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6976FD31A7FA136DEC6BA481 /* Pods-TinderApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderApp.release.xcconfig"; path = "Target Support Files/Pods-TinderApp/Pods-TinderApp.release.xcconfig"; sourceTree = "<group>"; };
+		7C8D7CF4CD4DE5F9052B8D64 /* Pods-TinderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TinderApp.debug.xcconfig"; path = "Target Support Files/Pods-TinderApp/Pods-TinderApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,13 +91,9 @@
 			files = (
 				1A29F0E52727E7D200F77F01 /* PKHUD in Frameworks */,
 				1A3860DB2722639600F1A234 /* RxSwift in Frameworks */,
-				1A3861052726848800F1A234 /* FirebaseAuth in Frameworks */,
 				1A3860D92722639600F1A234 /* RxRelay in Frameworks */,
-				1A3861072726848800F1A234 /* FirebaseCrashlytics in Frameworks */,
-				1A3861032726848800F1A234 /* FirebaseAnalytics in Frameworks */,
-				1A38610B2726848800F1A234 /* FirebaseStorage in Frameworks */,
 				1A3860D72722639600F1A234 /* RxCocoa in Frameworks */,
-				1A3861092726848800F1A234 /* FirebaseFirestore in Frameworks */,
+				7319079A83ACB1A2E8BB4DBC /* Pods_TinderApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +105,8 @@
 			children = (
 				1A3860AE27214E1D00F1A234 /* TinderApp */,
 				1A3860AD27214E1D00F1A234 /* Products */,
+				EB4D80D9881DF47F32280B13 /* Pods */,
+				DE083D1497AD7290873668B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +121,7 @@
 		1A3860AE27214E1D00F1A234 /* TinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				1AEC0F45273BF5FD00C822C8 /* Cells */,
 				1AC58EC4272A870300C21303 /* Models */,
 				1A3860E42725BDBD00F1A234 /* Design */,
 				1A3860CC2721BA8A00F1A234 /* Extensions */,
@@ -229,6 +229,32 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		1AEC0F45273BF5FD00C822C8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1AEC0F46273BF61D00C822C8 /* InfoCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE083D1497AD7290873668B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D7FDF412AA00E455209798E /* Pods_TinderApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB4D80D9881DF47F32280B13 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C8D7CF4CD4DE5F9052B8D64 /* Pods-TinderApp.debug.xcconfig */,
+				6976FD31A7FA136DEC6BA481 /* Pods-TinderApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A3860C027214E2000F1A234 /* Build configuration list for PBXNativeTarget "TinderApp" */;
 			buildPhases = (
+				128C6F51D083C774A938AD61 /* [CP] Check Pods Manifest.lock */,
 				1A3860A827214E1D00F1A234 /* Sources */,
 				1A3860A927214E1D00F1A234 /* Frameworks */,
 				1A3860AA27214E1D00F1A234 /* Resources */,
+				6EB6B110AFB9DB95363A5E81 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,11 +277,6 @@
 				1A3860D62722639600F1A234 /* RxCocoa */,
 				1A3860D82722639600F1A234 /* RxRelay */,
 				1A3860DA2722639600F1A234 /* RxSwift */,
-				1A3861022726848800F1A234 /* FirebaseAnalytics */,
-				1A3861042726848800F1A234 /* FirebaseAuth */,
-				1A3861062726848800F1A234 /* FirebaseCrashlytics */,
-				1A3861082726848800F1A234 /* FirebaseFirestore */,
-				1A38610A2726848800F1A234 /* FirebaseStorage */,
 				1A29F0E42727E7D200F77F01 /* PKHUD */,
 			);
 			productName = TinderApp;
@@ -286,7 +309,6 @@
 			mainGroup = 1A3860A327214E1D00F1A234;
 			packageReferences = (
 				1A3860D52722639600F1A234 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1A29F0E32727E7D200F77F01 /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = 1A3860AD27214E1D00F1A234 /* Products */;
@@ -311,6 +333,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		128C6F51D083C774A938AD61 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TinderApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6EB6B110AFB9DB95363A5E81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TinderApp/Pods-TinderApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TinderApp/Pods-TinderApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TinderApp/Pods-TinderApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1A3860A827214E1D00F1A234 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -318,6 +382,7 @@
 			files = (
 				1AEC0F42273145D400C822C8 /* ProfileLabel.swift in Sources */,
 				1A3860D02721C7AE00F1A234 /* BottomButton.swift in Sources */,
+				1AEC0F47273BF61D00C822C8 /* InfoCollectionViewCell.swift in Sources */,
 				1A3860FB272604AD00F1A234 /* RegisterTextField.swift in Sources */,
 				1A3860FD2726091900F1A234 /* RegisterTitleLabel.swift in Sources */,
 				1A3860E82725D28200F1A234 /* UIButton-Extension.swift in Sources */,
@@ -478,11 +543,13 @@
 		};
 		1A3860C127214E2000F1A234 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C8D7CF4CD4DE5F9052B8D64 /* Pods-TinderApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8K9JFKB9X4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TinderApp/Info.plist;
@@ -506,6 +573,7 @@
 		};
 		1A3860C227214E2000F1A234 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6976FD31A7FA136DEC6BA481 /* Pods-TinderApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -572,14 +640,6 @@
 				kind = branch;
 			};
 		};
-		1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -602,31 +662,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A3860D52722639600F1A234 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
-		};
-		1A3861022726848800F1A234 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		1A3861042726848800F1A234 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		1A3861062726848800F1A234 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		1A3861082726848800F1A234 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		1A38610A2726848800F1A234 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 1A3861012726848700F1A234 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
