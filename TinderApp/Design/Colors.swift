@@ -15,4 +15,7 @@ struct Colors {
     static var lightPinkColor = UIColor.rgb(red: 227, green: 48, blue: 78, alpha: 0.2)//lightPink
     static var orangeColor = UIColor.rgb(red: 245, green: 208, blue: 108)//orange
     static var invalidButtonColor = UIColor.init(white: 0.7, alpha: 1)//gray
+    
+    static var placeholderBackgroundColor = UIColor.rgb(red: 245, green: 245, blue: 245)//gray
+    
 }

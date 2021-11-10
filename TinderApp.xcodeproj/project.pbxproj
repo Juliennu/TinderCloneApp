@@ -45,6 +45,7 @@
 		1AEC0F3D27313ED700C822C8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F3C27313ED700C822C8 /* ProfileViewController.swift */; };
 		1AEC0F402731445700C822C8 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */; };
 		1AEC0F42273145D400C822C8 /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F41273145D400C822C8 /* ProfileLabel.swift */; };
+		1AEC0F44273BEF2A00C822C8 /* ProfileTextField.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F43273BEF2A00C822C8 /* ProfileTextField.swift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		1AEC0F3C27313ED700C822C8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		1AEC0F41273145D400C822C8 /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
+		1AEC0F43273BEF2A00C822C8 /* ProfileTextField.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			children = (
 				1AEC0F3F2731445700C822C8 /* ProfileImageView.swift */,
 				1AEC0F41273145D400C822C8 /* ProfileLabel.swift */,
+				1AEC0F43273BEF2A00C822C8 /* ProfileTextField.swift.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				1A3860B427214E1D00F1A234 /* HomeViewController.swift in Sources */,
 				1A3860DD2722896C00F1A234 /* UIView-Extension.swift in Sources */,
 				1A3860DF2722958900F1A234 /* CardView.swift in Sources */,
+				1AEC0F44273BEF2A00C822C8 /* ProfileTextField.swift.swift in Sources */,
 				1A3861122727A8D200F1A234 /* LoginViewController.swift in Sources */,
 				1A3860F72725FBFA00F1A234 /* RegisterViewController.swift in Sources */,
 				1A38610E272697DF00F1A234 /* RegisterViewModel.swift in Sources */,
