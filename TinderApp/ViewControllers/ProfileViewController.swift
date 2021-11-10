@@ -74,6 +74,18 @@ class ProfileViewController: UIViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
+        
+        profileEditButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                //アルバムにアクセスする
+                let pickerView = UIImagePickerController()
+                pickerView.delegate = self
+                self?.present(pickerView, animated: true)
+            }
+            .disposed(by: disposeBag)
+
 
     }
     
@@ -124,6 +136,20 @@ class ProfileViewController: UIViewController {
         
     }
 }
+
+//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //写真選択時の処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // info: 画像を取得
+        if let image = info[ .originalImage] as? UIImage {
+            profileImageView.image = image.withRenderingMode(.alwaysOriginal)
+        }
+        self.dismiss(animated: true)
+    }
+}
+
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
