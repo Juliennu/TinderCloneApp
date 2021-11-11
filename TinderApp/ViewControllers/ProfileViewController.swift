@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 import RxSwift
 import RxCocoa
 
@@ -16,6 +17,7 @@ class ProfileViewController: UIViewController {
     private let disposeBag = DisposeBag()
     var user: User?
     private let cellId = "cellId"
+    private var hasChangedImageView = false
     
     private var name = ""
     private var age = ""
@@ -58,15 +60,27 @@ class ProfileViewController: UIViewController {
         saveButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
-                //1. TextFieldの内容を更新
+                
+                guard let self = self else { return }
+                //1. TextFieldに入力された情報で更新する
                 let dic = [
-                    "name": self?.name,
-                    "age": self?.age,
-                    "email": self?.email,
-                    "residence": self?.residence,
-                    "hobby": self?.hobby,
-                    "introduction": self?.introduction
+                    "name": self.name,
+                    "age": self.age,
+                    "email": self.email,
+                    "residence": self.residence,
+                    "hobby": self.hobby,
+                    "introduction": self.introduction
                 ]
+                
+                //画像を変更した時
+                if self.hasChangedImageView {
+                    //画像をStorageに保存する処理
+                    guard let image = self.profileImageView.image else { return }
+                    Storage.addProfileImageToStorage(image: image) {
+                        print("ImageをStorageへ保存しました。")
+                        self.hasChangedImageView = false
+                    }
+                }
                 
                 //2. Firestoreの情報を更新
                 Firestore.updateUserInfo(dic: dic) {
@@ -83,6 +97,7 @@ class ProfileViewController: UIViewController {
                 let pickerView = UIImagePickerController()
                 pickerView.delegate = self
                 self?.present(pickerView, animated: true)
+                
             }
             .disposed(by: disposeBag)
 
@@ -146,6 +161,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         if let image = info[ .originalImage] as? UIImage {
             profileImageView.image = image.withRenderingMode(.alwaysOriginal)
         }
+        //フラグを更新
+        self.hasChangedImageView = true
+        
         self.dismiss(animated: true)
     }
 }

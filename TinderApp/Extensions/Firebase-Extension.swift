@@ -5,6 +5,7 @@
 //  Created by Juri Ohto on 2021/10/25.
 //
 import Firebase
+import UIKit
 
 // MARK: - Auth
 extension Auth {
@@ -120,4 +121,27 @@ extension Firestore {
             print("ユーザー情報の更新に成功")
         }
     }
+}
+
+// MARK: - Storage
+extension Storage {
+    
+    static func addProfileImageToStorage(image: UIImage, completion: @escaping () -> Void) {
+        
+        //compressionQuality: 画像の解像度(0:データない→1:オリジナル)
+        guard let uploadImage = image.jpegData(compressionQuality: 0.3) else { return }
+        //ランダムな文字列を生成し、ファイルネームとして使用
+        let fileName = NSUUID().uuidString
+        
+        //画像をStorageに保存
+        Storage.storage().reference().child("profileImage").child(fileName).putData(uploadImage, metadata: nil) { metadata, err in
+            if let err = err {
+                print("ProfileImageの保存に失敗: ", err)
+                return
+            }
+            completion()
+            print("画像の保存に成功")
+        }
+    }
+    
 }
