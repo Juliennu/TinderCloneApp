@@ -42,6 +42,7 @@
 		1AEC0F42273145D400C822C8 /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F41273145D400C822C8 /* ProfileLabel.swift */; };
 		1AEC0F44273BEF2A00C822C8 /* ProfileTextField.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F43273BEF2A00C822C8 /* ProfileTextField.swift.swift */; };
 		1AEC0F47273BF61D00C822C8 /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0F46273BF61D00C822C8 /* InfoCollectionViewCell.swift */; };
+		1AEC0F4A273D05D000C822C8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1AEC0F49273D05D000C822C8 /* SDWebImage */; };
 		7319079A83ACB1A2E8BB4DBC /* Pods_TinderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7FDF412AA00E455209798E /* Pods_TinderApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AEC0F4A273D05D000C822C8 /* SDWebImage in Frameworks */,
 				1A29F0E52727E7D200F77F01 /* PKHUD in Frameworks */,
 				1A3860DB2722639600F1A234 /* RxSwift in Frameworks */,
 				1A3860D92722639600F1A234 /* RxRelay in Frameworks */,
@@ -251,7 +253,6 @@
 				7C8D7CF4CD4DE5F9052B8D64 /* Pods-TinderApp.debug.xcconfig */,
 				6976FD31A7FA136DEC6BA481 /* Pods-TinderApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -278,6 +279,7 @@
 				1A3860D82722639600F1A234 /* RxRelay */,
 				1A3860DA2722639600F1A234 /* RxSwift */,
 				1A29F0E42727E7D200F77F01 /* PKHUD */,
+				1AEC0F49273D05D000C822C8 /* SDWebImage */,
 			);
 			productName = TinderApp;
 			productReference = 1A3860AC27214E1D00F1A234 /* TinderApp.app */;
@@ -310,6 +312,7 @@
 			packageReferences = (
 				1A3860D52722639600F1A234 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				1A29F0E32727E7D200F77F01 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				1AEC0F48273D05D000C822C8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 1A3860AD27214E1D00F1A234 /* Products */;
 			projectDirPath = "";
@@ -640,6 +643,14 @@
 				kind = branch;
 			};
 		};
+		1AEC0F48273D05D000C822C8 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -662,6 +673,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A3860D52722639600F1A234 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		1AEC0F49273D05D000C822C8 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AEC0F48273D05D000C822C8 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

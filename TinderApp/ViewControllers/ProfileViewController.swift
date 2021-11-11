@@ -10,7 +10,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 import RxSwift
-import RxCocoa
+import PKHUD
+import SDWebImage
 
 class ProfileViewController: UIViewController {
     
@@ -62,6 +63,9 @@ class ProfileViewController: UIViewController {
             .drive { [weak self] _ in
                 
                 guard let self = self else { return }
+                
+                self.nameLabel.text = self.name
+                
                 //1. TextFieldに入力された情報で更新する
                 let dic = [
                     "name": self.name,
@@ -86,6 +90,8 @@ class ProfileViewController: UIViewController {
                         print("更新完了")
                     }
                 }
+                
+                HUD.flash(.success)
             }
             .disposed(by: disposeBag)
         
@@ -148,7 +154,9 @@ class ProfileViewController: UIViewController {
         //ログインユーザー情報を反映
         nameLabel.text = user?.name ?? "匿名ユーザー"
         
-        
+        //ライブラリを用いてURLからImageに変換する
+        guard let url = URL(string: user?.profileImageUrl ?? "") else { return }
+        profileImageView.sd_setImage(with: url)//キャッシュを端末内に保存してくれるので同じ画像の表示にラグがほぼない
     }
 }
 
