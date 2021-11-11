@@ -76,15 +76,15 @@ class ProfileViewController: UIViewController {
                 if self.hasChangedImageView {
                     //画像をStorageに保存する処理
                     guard let image = self.profileImageView.image else { return }
-                    Storage.addProfileImageToStorage(image: image) {
+                    Storage.addProfileImageToStorage(image: image, dic: dic) {
                         print("ImageをStorageへ保存しました。")
                         self.hasChangedImageView = false
                     }
-                }
-                
-                //2. Firestoreの情報を更新
-                Firestore.updateUserInfo(dic: dic) {
-                    print("更新完了")
+                } else {
+                    //2. Firestoreの情報を更新
+                    Firestore.updateUserInfo(dic: dic) {
+                        print("更新完了")
+                    }
                 }
             }
             .disposed(by: disposeBag)
