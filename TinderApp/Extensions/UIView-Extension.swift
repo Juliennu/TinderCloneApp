@@ -63,7 +63,7 @@ extension UIView {
 
 extension UIView {
     
-    func removeCardViewAnimation(x: CGFloat) {
+    func removeCardViewAnimation(x: CGFloat, completion: (() -> Void)? = nil) {//completionの処理をoptional型にする
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
             
             let degree: CGFloat = x / 40
@@ -75,6 +75,11 @@ extension UIView {
             
         } completion: { _ in
             self.removeFromSuperview()
+            
+            //completionがnilではない時
+            if let completion = completion {
+                completion()
+            }
         }
     }
 }

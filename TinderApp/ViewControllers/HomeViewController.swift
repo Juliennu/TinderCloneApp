@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     
     // MARK: Properties
     private let disposeBag = DisposeBag()
+    private var isCardAnimating = false
     //ログインユーザー
     private var user: User?
     //ログイン者以外のユーザー
@@ -134,12 +135,48 @@ class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
         
         
-            bottomControlView.reloadView.button?.rx.tap
+        bottomControlView.reloadView.button?.rx.tap
             .asDriver()
             .drive { [weak self] _ in
                 self?.fetchUsers()
             }
             .disposed(by: disposeBag)
+        
+        
+        bottomControlView.nopeView.button?.rx.tap
+            .asDriver()
+            .drive {  [weak self] _ in
+                
+                guard let self = self else { return }
+                //一番上のカードを動かす
+                guard let lastCardView = self.cardView.subviews.last else { return }
+                if !self.isCardAnimating {
+                    self.isCardAnimating = true
+                    lastCardView.removeCardViewAnimation(x: -600) {
+                        self.isCardAnimating = false
+                    }
+                }
+
+            }
+            .disposed(by: disposeBag)
+        
+        
+        bottomControlView.likeView.button?.rx.tap
+            .asDriver()
+            .drive {  [weak self] _ in
+                
+                guard let self = self else { return }
+                //一番上のカードを動かす
+                guard let lastCardView = self.cardView.subviews.last else { return }
+                if !self.isCardAnimating {
+                    self.isCardAnimating = true
+                    lastCardView.removeCardViewAnimation(x: 600) {
+                        self.isCardAnimating = false
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+
     }
     
 }
