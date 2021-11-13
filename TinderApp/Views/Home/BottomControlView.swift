@@ -23,11 +23,9 @@ class BottomControlView: UIView {
         super.init(frame: frame)
         
         setUpStackView()
+
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     private func setUpStackView() {
         
@@ -41,5 +39,9 @@ class BottomControlView: UIView {
         addSubview(baseStackView)
         
         baseStackView.anchor(top: topAnchor, bottom: bottomAnchor, left: leftAnchor, right: rightAnchor, leftPadding: space, rightPadding: space)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

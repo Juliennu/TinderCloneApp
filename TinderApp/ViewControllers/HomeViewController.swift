@@ -60,6 +60,10 @@ class HomeViewController: UIViewController {
     
     private func fetchUsers() {
         HUD.show(.progress)
+        
+        //情報を空にする
+        self.users = []
+        
         Firestore.fetchUserFromFirestore { users in
             HUD.hide()
             self.users = users
@@ -128,7 +132,16 @@ class HomeViewController: UIViewController {
                 self?.present(profileVC, animated: true)
             }
             .disposed(by: disposeBag)
+        
+        
+            bottomControlView.reloadView.button?.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                self?.fetchUsers()
+            }
+            .disposed(by: disposeBag)
     }
+    
 }
 
 // MARK: - UIAdaptivePresentationControllerDelegate
