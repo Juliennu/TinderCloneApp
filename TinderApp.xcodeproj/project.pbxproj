@@ -143,9 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				1A3860B327214E1D00F1A234 /* HomeViewController.swift */,
+				1AEC0F3C27313ED700C822C8 /* ProfileViewController.swift */,
 				1A3860F62725FBFA00F1A234 /* RegisterViewController.swift */,
 				1A3861112727A8D200F1A234 /* LoginViewController.swift */,
-				1AEC0F3C27313ED700C822C8 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -153,8 +153,8 @@
 		1A3860C927218E9B00F1A234 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1AEC0F3E2731443D00C822C8 /* Profile */,
 				1A3860F82726043500F1A234 /* Home */,
+				1AEC0F3E2731443D00C822C8 /* Profile */,
 				1A3860F92726044F00F1A234 /* Register */,
 			);
 			path = Views;
@@ -184,13 +184,13 @@
 		1A3860F82726043500F1A234 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
-				1A3860CF2721C7AE00F1A234 /* BottomButton.swift */,
-				1A3860D12721C7D800F1A234 /* BottomButtonView.swift */,
 				1A3860D327224B0400F1A234 /* TopControlView.swift */,
 				1A3860DE2722958900F1A234 /* CardView.swift */,
 				1A3860E52725C97C00F1A234 /* CardInfoLabel.swift */,
 				1A3860E92725D45100F1A234 /* CardImageView.swift */,
+				1A3860CA27218EB400F1A234 /* BottomControlView.swift */,
+				1A3860CF2721C7AE00F1A234 /* BottomButton.swift */,
+				1A3860D12721C7D800F1A234 /* BottomButtonView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

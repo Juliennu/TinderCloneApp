@@ -14,21 +14,17 @@ import RxSwift
 
 class HomeViewController: UIViewController {
     
+    // MARK: Properties
     private let disposeBag = DisposeBag()
     //ログインユーザー
     private var user: User?
     //ログイン者以外のユーザー
     private var users = [User]()
     
+    // MARK: UIViews
     let topControlView = TopControlView()
     let cardView = UIView()//CardView()
     let bottomControlView = BottomControlView()
-    
-//    private let logoutButton: UIButton = {
-//        let button = UIButton(type: .system)
-//        button.setTitle("ログアウト", for: .normal)
-//        return button
-//    }()
     
     // MARK: Life Cycle Methods
     override func viewDidLoad() {
@@ -85,8 +81,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-
-    
     private func setUpLayout() {
         
         view.backgroundColor = .white
@@ -97,7 +91,6 @@ class HomeViewController: UIViewController {
         stackView.axis = .vertical
         
         self.view.addSubview(stackView)
-//        self.view.addSubview(logoutButton)
         //StackViewのレイアウト
         [
             topControlView.heightAnchor.constraint(equalToConstant: 100),
@@ -111,8 +104,6 @@ class HomeViewController: UIViewController {
             
         ]
             .forEach { $0.isActive = true }
-        
-//        logoutButton.anchor(bottom: view.bottomAnchor, left: view.leftAnchor, bottomPadding: 20, leftPadding: 20)
     }
     
     private func transitionToRegistrationVC() {
@@ -132,11 +123,25 @@ class HomeViewController: UIViewController {
                 let profileVC = ProfileViewController()
                 //ProfielVCにユーザー情報を渡す
                 profileVC.user = self?.user
+                //delegateを設定（モーダル遷移したprofileVCを閉じた後の処理を設定するため）
+                profileVC.presentationController?.delegate = self
                 self?.present(profileVC, animated: true)
             }
             .disposed(by: disposeBag)
-
     }
 }
 
-
+// MARK: - UIAdaptivePresentationControllerDelegate
+extension HomeViewController: UIAdaptivePresentationControllerDelegate {
+    
+    //presentで遷移したVCがdismissされたときに呼ばれる
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        if Auth.auth().currentUser == nil {
+            //情報を空にしておく
+            self.user = nil
+            self.users = []
+            
+            transitionToRegistrationVC()
+        }
+    }
+}

@@ -15,7 +15,9 @@ import SDWebImage
 
 class ProfileViewController: UIViewController {
     
+    // MARK: Properties
     private let disposeBag = DisposeBag()
+    
     var user: User?
     private let cellId = "cellId"
     private var hasChangedImageView = false
@@ -48,15 +50,15 @@ class ProfileViewController: UIViewController {
         return collectionView
     }()
     
+    // MARK: Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpLayout()
         setUpBindings()
-        logoutButton.addTarget(self, action: #selector(tappedLogoutButton), for: .touchUpInside)
-
     }
     
+    // MARK: Methods
     private func setUpBindings() {
         saveButton.rx.tap
             .asDriver()
@@ -106,31 +108,36 @@ class ProfileViewController: UIViewController {
                 
             }
             .disposed(by: disposeBag)
-
-
+        
+        logoutButton.rx.tap
+            .asDriver()
+            .drive { [weak self] _ in
+                self?.logout()
+            }
+            .disposed(by: disposeBag)//これを忘れるとViewDidLoadのたびにlogout()が呼ばれるぞ
     }
     
-    @objc private func tappedLogoutButton() {
+    private func logout() {
         
         do {
             try Auth.auth().signOut()
-            transitionToRegistrationVC()
+            //profile画面を閉じる
+            self.dismiss(animated: true)
+            
         } catch {
-            print("ログアウトに失敗")
+            print("ログアウトに失敗: ", error)
         }
     }
     
-    private func transitionToRegistrationVC() {
-        //レイアウトが完成してから処理を行うようタイミングを調整する
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            //画面遷移
-            let registerViewController = RegisterViewController()
-            //navigationControllerを設定
-            let nav = UINavigationController(rootViewController: registerViewController)
-            nav.modalPresentationStyle = .fullScreen
-            self.present(nav, animated: true)
-        }
+    //dismissの処理を上書きして変更する
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        //nilチェック
+        guard let presentationController = presentationController else { return }
+        //dismissをした時もHomeVCでpresentationControllerDidDismissが正しく呼ばれるようになる
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
+
     
     private func setUpLayout() {
         
