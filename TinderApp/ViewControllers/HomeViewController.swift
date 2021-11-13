@@ -97,18 +97,10 @@ class HomeViewController: UIViewController {
         
         self.view.addSubview(stackView)
         //StackViewのレイアウト
-        [
-            topControlView.heightAnchor.constraint(equalToConstant: 100),
-            bottomControlView.heightAnchor.constraint(equalToConstant: 120),
-            
-            //safeAreaを除外する
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: view.rightAnchor)
-            
-        ]
-            .forEach { $0.isActive = true }
+        topControlView.anchor(height: 100)
+        bottomControlView.anchor(height: 120)
+        //safeAreaを除外する
+        stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor)
     }
     
     private func transitionToRegistrationVC() {
