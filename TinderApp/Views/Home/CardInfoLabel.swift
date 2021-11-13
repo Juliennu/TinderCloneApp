@@ -27,12 +27,11 @@ class CardInfoLabel: UILabel {
     }
     
     //その他のtextLabelが白のラベル
-    init(text: String, font: UIFont) {
+    init(font: UIFont) {
         super.init(frame: .zero)
         
         self.font = font
         textColor = .white
-        self.text = text
         numberOfLines = 0
         lineBreakMode = .byWordWrapping
 

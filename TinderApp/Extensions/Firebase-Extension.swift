@@ -58,7 +58,8 @@ extension Firestore {
         let document: [String: Any] = [
             "name": name,
             "email": email,
-            "createdAt": Timestamp()
+            "createdAt": Timestamp(),
+            "uid": uid
         ]
         
         Firestore.firestore().collection("users").document(uid).setData(document) { err in
@@ -103,7 +104,12 @@ extension Firestore {
                 return user
             })
             
-            completion(users ?? [User]())
+            //ログインユーザーの情報を除く
+            let filteredUsers = users?.filter({ user in
+                return user.uid != Auth.auth().currentUser?.uid
+            })
+            
+            completion(filteredUsers ?? [User]())
         }
     }
     

@@ -18,6 +18,7 @@ class User {
     var hobby: String
     var introduction: String
     var profileImageUrl: String
+    var uid: String
 
 
     init(dic: [String: Any]) {
@@ -29,5 +30,6 @@ class User {
         self.hobby = dic["hobby"] as? String ?? ""
         self.introduction = dic["introduction"] as? String ?? ""
         self.profileImageUrl = dic["profileImageUrl"] as? String ?? ""
+        self.uid = dic["uid"] as? String ?? ""
     }
 }

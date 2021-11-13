@@ -60,6 +60,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: Methods
     private func setUpBindings() {
+        
         saveButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
@@ -75,7 +76,8 @@ class ProfileViewController: UIViewController {
                     "email": self.email,
                     "residence": self.residence,
                     "hobby": self.hobby,
-                    "introduction": self.introduction
+                    "introduction": self.introduction,
+                    "uid": Auth.auth().currentUser?.uid
                 ]
                 
                 //画像を変更した時

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CardView: UIView {
     //グラデーションをつける
@@ -16,15 +17,15 @@ class CardView: UIView {
     
     private let infoButton = UIButton(type: .system).createCardInfoButton()
     
-    private let nameLabel = CardInfoLabel(text: "Juri, 26", font: .systemFont(ofSize: 40, weight: .heavy))
+    private let nameLabel = CardInfoLabel(font: .systemFont(ofSize: 40, weight: .heavy))
     
-    private let residenceLabel = CardInfoLabel(text: "日本、栃木", font: .systemFont(ofSize: 18, weight: .regular))
+    private let residenceLabel = CardInfoLabel(font: .systemFont(ofSize: 18, weight: .regular))
     
-    private let hobbyLabel = CardInfoLabel(text: "ボードゲーム", font: .systemFont(ofSize: 20, weight: .regular))
+    private let hobbyLabel = CardInfoLabel(font: .systemFont(ofSize: 20, weight: .regular))
     
-    private let introductionLabel = CardInfoLabel(text: "土日に一緒に遊べる友達を探しています", font: .systemFont(ofSize: 18, weight: .regular))
+    private let introductionLabel = CardInfoLabel(font: .systemFont(ofSize: 18, weight: .regular))
     
-    private let goodLabel = CardInfoLabel(text: "GOOD", color: Colors.greenColor)
+    private let goodLabel = CardInfoLabel(text: "GOOD", color: Colors.greenColor) 
     
     private let nopeLabel = CardInfoLabel(text: "NOPE", color: Colors.redColor)
 
@@ -137,8 +138,16 @@ class CardView: UIView {
         nopeLabel.anchor(top: cardImageView.topAnchor, right: cardImageView.rightAnchor, width: 140, height: 55, topPadding: 25, rightPadding: 25)
         
         //ユーザー情報をViewに反映
-        nameLabel.text = user.name
-        introductionLabel.text = user.email
+        nameLabel.text = "\(user.name), \(user.age)"
+        residenceLabel.text = user.residence
+        hobbyLabel.text = user.hobby
+        introductionLabel.text = user.introduction
+        
+//        cardImageView.image =
+        
+        //ライブラリを用いてURLからImageに変換する
+        guard let url = URL(string: user.profileImageUrl) else { return }
+        cardImageView.sd_setImage(with: url)
 
     }
     
